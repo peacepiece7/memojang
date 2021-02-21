@@ -160,24 +160,8 @@ const simpeMultiply = (a,b) => {
 // command: add, substract, divide, multiply, remainder
 
 function calculate(command, a, b){
-    if (command === 'add'){
-        const add = a+b;
-        console.log(add);
-    }
-    else if (command === 'substract'){
-        const substract = a=b;
-        console.log(substract);
-    }
-    else if (command === 'divide'){
-        const divide = a/b;
-        console.log(divide);
-    }
-    else if (command === 'remainder'){
-        const remainder = a%b;
-        console.log(remainder);
-    } 
-    else{
-        console.log('plz check a value');
+    switch(command) {
+        
     }
 }
 
