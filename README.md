@@ -1,3 +1,23 @@
+# 개발 레벨
+
+
+개인적으로는 아래와 같이 개발자의 수준을 분류하고 싶습니다.
+
+레벨0: 이미 쓰고 있는 개발도구의 사용법을 알려주거나 가이드 문서를 줘도 잘 못 씀
+레벨1: 알려주거나 같은 팀에서 만든 가이드 문서에 있는 만큼만 쓸 수 있음
+레벨2
+개발도구의 공식 레퍼런스를 보고 사용법을 스스로 익힐 수 있음
+자신이 경험한 사용법을 문서화해서 팀 내에 전파할 수 있음
+레벨3
+여러 개발도구를 비교 분석해서 상황에 적합한 도구를 선택할 수 있음
+공식 레퍼런스 문서에서 부족한 부분을 수정해서 기여할 수 있음
+레벨4
+개발도구의 문제를 소스 코드를 수정해서 Fork/패치해서 사용할 수 있음
+신입사원이라도 레벨2 정도는 함께 일할 개발자에게 기대를 하게 됩니다.
+
+
+reference - [백엔드를 꿈꾸는 학생들에게](https://d2.naver.com/news/3435170)
+
 # nomadCoder에서 듣고싶은 수업의 가격, 시간 예상 공부 기간
 
 - [x] 코코아톡 클론 코딩(html css 초급 795분 **100,000원** 95개
@@ -255,14 +275,66 @@ include를 사용해서 데이터를 가져온다.
 5. router contorller에서 json 데이터를 가져온다 
 * controller(json데이터를 가짐) -> view.pug로 전달 -> each items in json데이터 로 화면에 뿌기리
 
+## mongostore (로그인 유지하기)
 
+1. terminal에 
 
+`npm i connect-mongo`
 
+2. app.js에서 Mongoose에서 mongoStroe에 연결할 거니까? mongoStroe import하기
 
+```
+import MongoStore from "connect-mongo"
+import mongoose from "mongoose"
+const CokieStore = MongoStore(session)
+```
+3. app.js에서 store 추가
 
+```
+app.use(
+    session({
+        secret: process.env.COOKIE_SECRET,
+        resave: true,
+        saveUninitialized: false,
+        store: new CokieStore({ mongooseConnection: mongoose.connection })
+    })
+);
+```
 
+4. terminal을 종료하고 다시 실행해도 로그인 상태가 유지됨
 
+## Login 상태에서 회원가입 못하게 하기
 
+> 로그인 상태에서 주소창에 locallhost:4000/join 입력시 회원가입 창으로 이동하는 것, 반대의 경우까지 만들어보자
+
+1. middleware.js에 로그인시 home으로 redirect되도록 middleware를 만들어 줌
+
+```
+export const onlyPublic = (req,res,next) => {
+    if(req.user){
+        res.redirect(routes.home);
+    }else {
+        next()
+    }
+}
+export const onlyPrivate = (req,res,next) => {
+    if(req.user){
+        next()
+    }else{
+        res.redirect(routes.home)
+    }
+}
+```
+
+2. router에 추가하기 
+
+```
+import { onlyPublic } from "../meddileware"
+
+userRouter.get(routes.editProfile,onlyPublic, editProfile);
+userRouter.get(routes.changePassword,onlyPublic, changePassword);
+```
+onlyPublic 도 필요한 부분에 입력해주자 
 
 
 

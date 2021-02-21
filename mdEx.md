@@ -28,11 +28,6 @@ Fruits number:
 <!--Link-->
 Click [here](https://www.youtube.com/watch?v=kMEb_BzyUqk)
 <!--image-->
-![image description](https://www.dogdrip.net/files/attach/images/174688197/567ff832bf84e8d2e39769c7d0e0699c.gif)
-<br>
-<img scr="https://www.dogdrip.net/files/attach/images/174688197/567ff832bf84e8d2e39769c7d0e0699c.gif" width="400">
-<br>
-<!-- Table -->
 |Header|Description|
 |:--|:--:|
 |apple|banana|
