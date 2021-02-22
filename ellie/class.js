@@ -82,12 +82,13 @@ class Experiment {
 }
 const experiment = new Experiment()
 
-console.log(experiment.publicField)
-console.log(experiment.privateField)
+console.log(experiment.publicField)  // 2
+console.log(experiment.privateField) // undefined
 
 // 4. Static properties and methods
 // Too soon!
 // class에 공통으로 사용되는 부분은 static으로 만들면, Object에 상관없이 바로 호출이 가능하고, 메모리 사용을 줄여줄 수 있다.
+// static = new branch in class
 
 class Aritcle {
     static publisher = 'Dream Coding';
@@ -100,9 +101,10 @@ class Aritcle {
 }
 const article1 = new Aritcle(1)
 const article2 = new Aritcle(2)
-console.log(article1)
-console.log(article1.articleNumber)
-Aritcle.printPublisher()
+
+console.log(article1)  // Article {..}
+console.log(article1.articleNumber) // 1
+Aritcle.printPublisher() // Dream Coding
 
 // 5. Inheritance
 // a way for one class to extend another class.
@@ -116,8 +118,7 @@ class shape {
         console.log(`drawing ${this.color} color of`)
     }
     getArea(){
-        return this.width * this.height
-        // width * this.height ?? 
+        return (this.width * this.height) / 2
     }
 }
 // class multiformity
@@ -129,8 +130,8 @@ class Triangle extends shape {
         super.draw();
         console.log('▲')
     }
-    getArea(){
-        return (this.width * this.height) / 2
+    getArea(a,b){
+        return (a * b) / 2
         // width * this.height ?? 
     }
 }
@@ -140,6 +141,10 @@ rectangle.draw()
 
 const triangle = new Triangle(200,200,'blue')
 triangle.draw()
+console.clear()
+console.log(triangle)
+console.log(triangle.getArea(10,10))
+console.log(triangle.draw())
 
 // 6. Class checking: instanceOf
 console.log(rectangle instanceof Rectangle) //True

@@ -1,3 +1,5 @@
+# part 1
+
 # console
 
 console 는 web api로 브라우저가 제공하고 사용가능한 함수
@@ -10,7 +12,7 @@ nodejs에서도 공통적으로 포함되어 있어서 node로 실행가능.
 
 1. script를 header에 포함시킬 경우 :
 
-```
+```js
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +33,7 @@ js file :| | fetching js -> execution js |
 
 2. body 뒤에 script를 붙일 경우
 
-```
+```js
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +56,7 @@ js file :| block | fetching js -> execution js |
 
 3. header + async
 
-```
+```js
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +77,7 @@ js file : | fetching js b | | excuting b |
 
 4. defer
 
-```
+```js
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,5 +99,3 @@ js file : | fetching js b |
 
 - ecma5에 기술되어있음
 - 이렇게 해야 선언하지 않은 함수에 대한 에러를 잡아줌 (조금 더 상식적인 프로그랭이 가능) a=5은 에러 잡아줌
-
-
