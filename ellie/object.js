@@ -1,4 +1,5 @@
 'use strict'
+// part 7
 // Objects
 // one of the Javascript`s data types
 // a collection of related data and/or functionalty
