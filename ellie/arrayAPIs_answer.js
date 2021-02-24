@@ -79,7 +79,7 @@ const students = [
 
 // Q7. make an array containing only the students' scores
 // result should be: [45, 80, 90, 66, 88]
-// arument는 최대한 이해하기 쉽게, 한눈에 보이게 작성하기
+// argument는 최대한 이해하기 쉽게, 한눈에 보이게 작성하기
 {
   const result = students.map((student) => student.score);
   console.log(result);

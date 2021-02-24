@@ -107,7 +107,7 @@ const students = [
     students.forEach((element) => {
       studentScore.push(element.score);
     });
-    const strStudentScroe = studentScore.sort();
+    const strStudentScroe = studentScore.sort((a, (b) => a - b)).join();
     console.log(typeof strStudentScroe, strStudentScroe);
   }
 }
