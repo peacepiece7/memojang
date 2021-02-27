@@ -46,7 +46,6 @@ class UserStorage {
         (id === "coder" && password === "academy")
       ) {
         onSuccess(id);
-        //console.log(onSuccess)
       } else {
         onError(new Error("not found"));
       }
@@ -54,6 +53,7 @@ class UserStorage {
   }
   getRoles(user, onSuccess, onError) {
     setTimeout(() => {
+      console.log(user);
       if (user === "ellie") {
         onSuccess({ name: "ellie", role: "admin" });
         //console.log(onSuccess);
@@ -73,8 +73,8 @@ const getUserData = (id, password) => {
     (onSuccess) => {
       userStorage.getRoles(
         onSuccess,
-        (onSuccess) => {
-          alert(`hellow ${onSuccess.name}, you have a ${onSuccess.role}`);
+        (getRoles) => {
+          alert(`hellow ${getRoles.name}, you have a ${getRoles.role}`);
         },
         (error) => console.log(error)
       );
@@ -84,18 +84,20 @@ const getUserData = (id, password) => {
     }
   );
 };
-getUserData("ellie", "dream");
+getUserData("ellies", "dream");
+// (onSuccess) => {}가 아래 function과 같음!
+const lalala = function (happy) {
+  console.log(happy);
+};
+lalala("helelelelel");
 
 class A {
   constructor() {
     console.log("hhhhhh");
   }
 }
-
-function testCodes() {
-  new Error("not found");
-}
-testCodes();
+// error class가원래 이래 생김, 문자열 받아서 콘솔로 찍어내기 좋게 만들어놨네
+console.log(new Error("not foundsssss"));
 
 // new Error([message[, fileName[, lineNumber]]]) Error class가 이미 있었구나;;;;;
 
