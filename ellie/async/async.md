@@ -56,6 +56,7 @@ consoe.log(user)
 ## async & await
 
 - **async**
+
   promise를 좀더 간편하게 사용하기 위해 async를 사용해서 같은 문장을 표현해 보자<br>
   promiseState,Result를 보면 async를 사용해도 완전히 같은 가능을 함을 알 수 있음
 
@@ -180,6 +181,8 @@ pickFruits().then(console.log);
 ```
 
 ## useful APIS Promise.all, Prommise.race
+
+병렬처리를 좀더 깔끔하게 해주는 api와 가장먼저 실행되는 첫번째 resolve만 가져오는 api
 
 ```js
 function delay(ms) {
