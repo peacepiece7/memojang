@@ -1,5 +1,6 @@
 // part 12
-export default class UserStorage {
+"use strict";
+class UserStorage {
   loginUser = (id, password) =>
     new Promise((resolve, reject) => {
       setTimeout(() => {
