@@ -26,7 +26,7 @@
 - 기억 장치(저장 장치)
 
   주기억장치 : RAM, ROM  
-  보조 기억장치 : 하드디스크, usb 메모리 등
+  보조 기억장치 : 하드디스크, usb 메모리 등                                                                                                                                                                                                                                                                                
 
 - 시스템 버스
 
@@ -100,12 +100,16 @@ os
 - IX (Index Register, 인덱스 레지스터)
   인덱스 주소지정 방식에서 인덱스 저장(class 같은 거임)
 ```
+   
     - 명령어 저장 레지스터
+
 ```js
 - IR   (Instruction Register, 명령어 레지스터)
     현제 실행중인 명령어 저장
 ```
+
     - 데이터 저장 레지스터
+
 ```js
 MBR (Memory Buffer Registor, 메모리 버퍼 레지스터)
     주기억 장치에서 읽어오거나 보낼 데이터를 임시 저장
@@ -113,7 +117,9 @@ MBR (Memory Buffer Registor, 메모리 버퍼 레지스터)
 AC (Accumulator, 누산기)
     연산 결과 임시 저장
 ```
+
     - CPU 상태 저장 레지스터
+
 ```js
 PSR (Program Statue Registor, 프로그램 상태 레지스터)
     cpu의 현재 상태 정보 저장
