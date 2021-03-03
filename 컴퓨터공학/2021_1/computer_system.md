@@ -221,16 +221,15 @@ cpu가 프로그램을 수행하는 동안 컴퓨터 시스템의 내부 외부�
 
 - **주소 필드 수에 따른 명령어 분류 | 0 주소 명령어**
 
-연산 코드만 존재며, stack 구조 컴푸터에서 사용, FIFO
+  - 연산 코드만 존재며, stack 구조 컴푸터에서 사용, FIFO
 
 ex) x = a + b
-
+```
 1. Push a  // 스택의 TOP mapping[a]
 2. Push b  // 그 위에 mapping[b]
 3. add a+b // 스택의 Top a+b
 4. Stroe X // 스택의 Top mapping[x]
-
-
+```
 - **주소 필드 수에 따른 명령어 분류 | 1 주소 명령어**
 
   - 단일 누산기 라고 부름
@@ -239,29 +238,29 @@ ex) x = a + b
 
 ex) x = a + b
 
+```
 1. Load a   // AC <- mapping[a]   a의 위치를 ac로 보냄
 2. Add b    // AC <- + mapping[b] B의 위치를 ac로 보냄
 3. Store x  // mapping[x] <- AC 누산 결과를 mapping함
-
+```
 - **주소 필드 수에 따른 명령어 분류 | 2 주소 명령어**
 
   - 2개의 주소필드를 가지는 가장 일반적 형태
 
 ex) x = a + b
-
+```
 MOV R1, a // R1 <- mapping[a]
 Add R1, b // R1 <- R1 + mapping[b]
 MOV x, R1 // mapping[x] <- R1
-
+```
 MOV R0,R1은 어셈블리어에서 R0,R1위치로의 이동을 뜻한다고 함
 
 - **주소 필드 수에 따른 명령어 분류 | 3 주소 명령어**
 
-3개의 주소 필드, 주소필드에 레지스터 번호, 주기억장치의 주소를 지정함
+  - 3개의 주소 필드, 주소필드에 레지스터 번호, 주기억장치의 주소를 지정함
 
 ex) x = a + b
-
-1. Add x, a, b // mapping[x] <- mapping[a] + mapping[b]
+`1. Add x, a, b // mapping[x] <- mapping[a] + mapping[b]`
 
 ---
 ### 요약  
