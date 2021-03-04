@@ -764,7 +764,10 @@ RISC, CISC 파이프라인기법, 병렬처리 시스템 등
   - Compiler
   - Assembler
   - Interpreter
-  - Preprocessor 등 
+  - Preprocessor
+  - Linked editer
+  - Loader 등
+  
 - 번역 방법
   - 번역 기법과 인터프리터 기법
   
