@@ -460,4 +460,69 @@ single instuction stream, multiple instruction stram, single data, multi data
 ### 요약  
 RISC, CISC 파이프라인기법, 병렬처리 시스템 등
 
+# 컴퓨터 소프트웨어 (1주차 2차시)
 
+컴퓨터 소프트웨어에 대해 설명할 수 있다.
+시스템 소프트웨어에 대해 설명할 수 있다.
+응용 소프트웨어에 대해 설명할 수 있다.
+
+## 소프트웨어란?
+
+### 1. 컴퓨터 프로그램
+
+- 소프트웨어
+ 
+  - 컴퓨터 관련 장치를 동작 시키는데 사용되는 여러 종류의 프로그램
+
+- 펌웨어 (Firmware)
+
+  - ROM에 기록되어 변경할 필요없이 하드웨어처럼 사용하능 한 것
+  - BIOS(Basic Input Output System) -> 휴대폰이나 lot에서도 찾아볼 수 있음
+  - 윈도우 파일 손상시 펌웨어가 작동해서 파일을 찾을 수 없다고 알려줌
+
+- 소프트웨어의 분류
+
+  - System Software
+  
+    - 사용자를 보조, 기본적 운영을 담당
+    - Language Transfiler , OS, Utility, File Management
+    
+  - Application software 
+   
+    - 작업 수행, 문제 해결
+    - Education, Game, Graphic, Medical program
+    -  
+- 명령문과 프로그램
+  
+  - 명령문 : 컴퓨터의 처리 절차
+  - 프로그램 : 컴퓨터가 이해하고 처리할 수 있는 언어
+ 
+ ### 2. 컴퓨터 소프트웨어
+  - 개인용 소프트웨어
+  
+    - 대부분의 소프트웨어 해당, 개별적 업무 처리
+    - excel, word ,, 
+    
+  - 그룹웨어(Groupware)
+  
+    - 스케줄관리, 문서 상호 공유, 그룹간 통신 작업을 지원하는 응용 소프트웨어
+    
+  - 미들웨어(Middleware)
+  
+    - 매개역할 연결을 도와줌
+    - 서로다른 기종간의 서버, 클라이언트를 연결해주는 소프트웨어
+    - 기업내 다양한 하드웨어, 네트워크 프로토콜, 응용프로그램, 근거리 통신망환경, 운영체제 호환 소프트웨어 등이 이에 해당
+    
+### 3. 소프트웨어 사용권 (Softeware License)
+
+- Copyright(저작권)에 의해 보호
+
+ - 종류
+ 
+   - Shareware, Freeware, Liteware
+   - Postcardware, Expireware
+   - Public Domain Software, Demo-Version 
+ 
+ 1. Lite
+ 
+   
