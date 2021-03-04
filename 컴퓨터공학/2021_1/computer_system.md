@@ -135,7 +135,7 @@ PSR (Program Statue Registor, 프로그램 상태 레지스터)
     cpu의 현재 상태 정보 저장
 ```
 
-### 2. 명령어 처리 과정(command? instructure?)
+### 2. 명령어 처리 과정(Instruction)
 
 - 명령어 사이클
 ```go
