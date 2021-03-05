@@ -45,7 +45,7 @@ Abacus -> Difference Engine -> Electronic Calculator -> Computer -> Mobile Devic
 
 - CPU를 내장한 IC(Integrated Circuit)
 
-|CPU | Memory|
+|CPU|Memory|
 |:-:|
 |Peripherals|
 
