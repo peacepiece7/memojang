@@ -49,5 +49,103 @@ Abacus -> Difference Engine -> Electronic Calculator -> Computer -> Mobile Devic
 |:-:|
 |Peripherals|
 
-CPU + Mem + Peripherals가 단일 Chip으로 구성되어 있다면 => one-chip computer
-하나의 IC로 구현 되어있다면? => Micr-processor
+CPU + Mem + Peripherals가 단일 Chip으로 구성되어 있다면? => one-chip computer  
+CPU가 하나의 IC로 구현 되어있다면? => Micro-processor  
+
+### 3. 소프트웨어
+
+소프트웨어
+
+- 특정 목적을 달성하기 위해 순서적으로 배치된 CPU명령어들의 집합
+
+- 시스템 소프트웨어, 응용 소프트웨어로 구성
+
+### 3-1 System Software
+
+- 하드웨어 관리, 프로그램 개발에 필요한 프로그램
+- 초기화 프로그램 (botloader)
+- OS
+- Translator 
+
+### 3-2 Application software
+- APP
+- bundle, package, SaaS, web download, 등 있음
+
+### 3-3 Platform
+- 실행 환경을 제공하는 HW/SW
+- HW Platform 
+  - 윈도우, 리눅스, 모바일 플랫폼
+- SW Platform
+  - java Platform
+  - BREW :모바일 실행 횐경
+  - IDLE (Integration Develpment Language Envinorment)
+### 3-4 Middil-Ware
+  - 소프트웨어 프레임 워크
+    - 추상화된 소프트웨어 구조체
+    - EX) API, labrary program, utility program
+### 3-5 Firm-Ware
+  - ROM memory
+  - BISO
+  - 소프트웨어보다 유연성 부족
+
+### 3-6 공조설계(co-design)
+  - HW/SW 특성, 최적의 시스템 설계, 고수준 설계자 필요
+
+## 3. 컴퓨터의 분류 
+
+### 1. 분류법
+- 세대별
+- 데이터 처리방식
+- 마이크로 프로세서의 유형
+
+### 2. 세대별 분류
+
+- 1세대 : 진공관 컴퓨터
+- 2세대 : 트랜지스터를 사용한 컴퓨터
+- 3세대 : IC 컴퓨터 
+- 4세대 : LSI (Large Scale Integration)
+- 5세대 : VLSI (Very Large Scale Integration)
+- 6세대 : ULSI (Ultra Large Scale Integration)
+
+### 3. 데이터 처리 방식에 따른 분류
+
+- 일괄 처리 방식 (Batch Processing)
+- 시분할 처리 방식 (Time Sharing)
+- 실시간 처리 방식 (Real-time Processing)
+- 시간 제약 여부의 따른 처리방식 
+  - Hard Real-time System : 미사일 제어
+  - Soft Real-time System : 동영상 제어
+
+### 4. 마이크로프로세서 유형에 따른 분류 
+
+- MPU (Micro Processing Unit)
+  - 계산용 프로세서 (Computation oriented)
+  - 고속의 연산 및 데이터 처리 : 여러 개의 고성능 ALU , H/W 곱셈 , FPU (Floating Point Unit)…
+  - x86 (Intel ), MIPS(MIPS Technologies), SH (Hitachi)…
+- MCU (MIcro Controller Unit)
+  - 제어용 프로세서 (Control oriented)
+  - 제어에 특화된 마이크로 프로세서 
+  - 비트 단위 (bit wise) 연산 지원 , 빠른 인터럽트 처리 , 다양한 입출력 포트 제공 …
+  - 주로 On chip/ SoC Micro processor, 8 bit 프로세서 AVR , 8051, PIC
+- DSP (Digital Signal Processor)
+  - 디지털 신호처리 (Audio, Video) 전용 프로세서 (DSP specific)
+  - MAC(Multiply Accumulator ), FPU , Multi port 메모리 인터페이스 , etc
+  - TMS320C6xxx (Texas Instruments), MSC81xx (Freescale), SHARC (Analog Devices)…
+- ASP (Application Specific Processor)
+  - 특정 용도에 최적화된 프로세서
+  - Graphics Processor: GeForce( nVidia ), HD(Intel), Radeon(
+  - Java Processor: ARM926EJ (ARM), picoJava (Sun
+  - Network Processor: IXP (Intel), PowerQUICC NXP
+  - Crypto Processor: C29x NXP ), SC300 (
+- Embedded Processor
+  - 소형, 소비전력 최적화 프로세서
+  - 임베디드 시스템 전용 프로세서
+- Mobile AP (Application Processor)
+  - CPU 뿐만 아니라 시스템 구현에 필요한 주변장치들을 SoC 형태로 집적화한 모바일 디바이스용 프로세서
+  - GPU , 모바일 통신 모듈 ( HSDPA , WCDMA ) 내장
+  - Snapdragon(Qualcomm ), Exynos (Samsung), TEGRA Nvidia ), Helio MediaTek ), A10 (Apple), Atom Z(Intel), OMAP (TI) ....
+- GPGPU (General Puerpose Computiong on Graphic Processor Unit)
+  -그래픽 전용 프로세서 ( 를 일반 응용프로그램 실행에 활용하는 기법
+  - 많은 코어를 내장하고 있어서 병렬 처리가 가능 )
+  - Radeon (AMD), Quadro Telsa / nVidia
+  - CUDA , openCL , DirectCompute API 를 사용하여 프로그래밍함
