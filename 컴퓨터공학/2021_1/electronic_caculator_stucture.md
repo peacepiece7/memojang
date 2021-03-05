@@ -150,3 +150,5 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
   - 많은 코어를 내장하고 있어서 병렬 처리가 가능 )
   - Radeon (AMD), Quadro Telsa / nVidia
   - CUDA , openCL , DirectCompute API 를 사용하여 프로그래밍함
+
+![CPUandGPU](CPUandGPU.gif)
