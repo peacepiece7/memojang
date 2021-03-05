@@ -14,7 +14,8 @@
 - 현대 전자 계산기는 컴퓨터로 총칭
 
 ```
-Abacus -> Difference Engine -> Electronic Calculator -> Computer -> Mobile Device -> Internet of Things (IoT) -> Artificail intelligence(AI)
+Abacus -> Difference Engine -> Electronic Calculator -> Computer ->
+-> Mobile Device -> Internet of Things (IoT) -> Artificail intelligence(AI)
 ```
 
 ### 2. 컴퓨터의 기능
