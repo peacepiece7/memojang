@@ -45,7 +45,6 @@ Abacus -> Difference Engine -> Electronic Calculator -> Computer -> Mobile Devic
 
 - CPU를 내장한 IC(Integrated Circuit)
 
-|CPU|Memory|
-|:-:|
-|Peripherals|
-
+|CPU/Memory|
+|:-:|            === CPU + Mem + Peripherals가 단일 Chip으로 구성되어 있다면 => one-chip computer
+|Peripherals|    === 하나의 IC로 구현 되어있다면? => Micr-processor
