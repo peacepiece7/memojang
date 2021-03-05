@@ -80,13 +80,13 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
   - java Platform
   - BREW :모바일 실행 횐경
   - IDLE (Integration Develpment Language Envinorment)
-### 3-4 Middil-Ware
+### 3-4 Middle-Ware
   - 소프트웨어 프레임 워크
     - 추상화된 소프트웨어 구조체
-    - EX) API, labrary program, utility program
+    - EX) API, Labrary program, Utility program
 ### 3-5 Firm-Ware
   - ROM memory
-  - BISO
+  - BIOS
   - 소프트웨어보다 유연성 부족
 
 ### 3-6 공조설계(co-design)
