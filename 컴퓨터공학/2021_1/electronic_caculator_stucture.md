@@ -152,7 +152,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
   - CUDA , openCL , DirectCompute API 를 사용하여 프로그래밍함
   - Graphic card가 여기 해당됨!
 
-![CPUandGPU](CPUandGPU.gif)
+![CPUandGPU](CPUandGPU.jpeg)
 
 # 컴퓨터 구조의 개요 (1주차 Part 2)
 
