@@ -336,7 +336,7 @@ cpu와 메모리 주변에 위치, cpu보조, I/O 데이터를 관리하는 장�
 - MPU (Memory Protection Unit)
 - 등등.. 
 
-### 4. 🚌🚌 버스
+### 5. 🚌🚌 버스
 
 cpu, mem, periphrals 상호 연결하는 배선 집합쓰
 
@@ -347,5 +347,124 @@ cpu, mem, periphrals 상호 연결하는 배선 집합쓰
   - Control Bus : 제어신호를 모두 전달 (양방향)
 
 ![systemBus](systemBus.jpeg)
+
+### 5-1 시스템 버스 
+
+cpu, 주변장치, 메모리를 연결하는 주요 버스 (고속)
+
+### 5-2 I/O 버스
+
+주변장치, 주로 입 출력 장치를 연결하는 버스, (고속/저속)
+
+![I/O bus](InputOutputBus.jpeg)
+
+## 📱폰 노이만 구조
+
+### 1. 마이크로 아키텍쳐
+
+- 주어진 명령어 세트에 최적화된 구조(ISA)
+- 동일한 명령어 세트에 여러 가지 마이크로 아키텍쳐를 설게할 수 있음 이게 머선 말이냐면
+- 컴퓨터 구조 = 명령어 세트 구조(ISA) + Mico-Arichitecture 라는 것임
+
+### 1-1 마이크로 아키텍쳐의 구성
+
+데이터 경로와 제어 유닛으로 구성
+
+![마크아텍](MicroArchitecture.jpeg)
+
+### 2 Stored-Program 방식 컴퓨터 
+
+`1945s 이전 ENIAC에서 프로그램 입력과 변경할 땐 수작업으로 스위치, 케이블을 연결해서 함`
+
+폰 노이만이 Stroed-Program 방식을 제안 함  
+주요 개념은
+- 프로그램 데이터를 저장해서 실행 
+- 프로그램 입력 : 메모리 저장
+- 프로그램 변경 : 매모리에 저장된 내용을 변경
+
+## 2-1 IAS computer
+
+폰 노이만이 Princeton의 IAS(Institute for Advenced Studies)에서  
+Stored-Program 방식 전자 컴퓨터를 설계 현대 범용 컴퓨터의 원형이 됨
+- Von Neumann Machine, Von Neumann 구조로 알려짐
+```
+메모리와 I/O 장치가 CPU를 거쳐서 전달되는 구조를 가짐 (양방향 통신)
+CPU는 Arichmetic Logical Unit(CA)와 Program Contorl Unit(CC)로 구성
+```
+
+### 2-2 IAS 컴퓨터 구조
+
+- 1000 x 40bit의 메모리 공간 ( 완전 작음 )
+- 데이터
+  - 1 bit 부호 비트, 39-bit의 데이터값
+- 명령어
+  - 8 bit Op-code, 12 bit Address 로 구성
+```
+메모리 1 워드에 하나에 39bit 데이터 2개의 명령어를 저장할 수 있음
+```
+
+- MAR : Memory Address Register
+- MBR : Memory Buffer Register
+- PC : Program Counter
+- IR : Instruction Register(Op-code,Operation말하는듯)
+- IBR : Instruction Buffer Register(Right Inst.)
+- AC : Accumulator
+- MQ : Multiplier Quotient
+  - 보조 누산기 (Multiplier : 제곱의 승수를 기억하고, Quotient : 나누기 몫을 기억함)
+
+![IAScomputer.jpeg](IAScomputer.jpeg
+
+### 3. 폰 노이만 구조
+
+프로그램, 데이터가 동알힌 메모리가 저장되는 구조  
+명령어가 하나의 메모리에 저장 
+data type이 없음 ㅋㅋㅋ  
+위치 정보만 매핑해서 실행  
+순차 실행  
+
+### 3-1 폰 노이만 구조 단점
+
+- 코드, 데이터 동시 접근이 불가능
+- Harvard 구조가 나옴 
+
+### 3-2 Harvar(하버드) 구조
+
+- 프로그램 코드와 데이터가 묶여있던 메모리 구조를 따로 분리한 메모리로 바꿈
+- 명령어 병렬 실행이 가능해짐 => 파이프라이닝을 통한 성능 향상까지!
+
+## 프로그램 실행
+
+### 1. 프로그램 실행
+
+프로그램이란
+- 순서적으로 나열된 명령어 들의 집합!
+- 메모리에 저장된 순서대로 실행됨
+- 재어 명령어 if, loop문을 사용해 실행 흐름을 변경
+
+
+### 2. 명령어 사이클 (instruction cycle)
+
+- instruction cycle
+  - one instruction cycle consist of Operation cycles
+
+### 3. 명령어 사이클 구성
+
+> computer system 강의에 명령어 사이클, interrupt, 간접 직접 인출에 대한 상세한 내용 
+> operaion system 강의에 구조, 알고리즘 상세한 내용
+
+Instruction Fetch(FI) : 프로그램 메모리에서 명령어 가져오기
+Instruction Decode : cpu 제어장치에서 명령어 해독
+Operand Fetch : 명령어 실행에 필요한 데이터를 데이터 메모리에서 가져오기
+Excute Instruction(EX,Ei) : ALU에서 데이터 처리
+Write Back(WB): 데이터 처리결과를 레지스터나 메모리에 저장
+
+### 3-1 컴퓨터 기본 모델
+![computerModel](computerModel.jpeg)
+
+
+### 3-2 명령어 사이클 실행 흐름
+
+![instructionStream](instructionStream.jpoeg)
+
 
 
