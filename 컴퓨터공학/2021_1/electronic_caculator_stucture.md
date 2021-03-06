@@ -275,7 +275,77 @@ CU(Control Unit)은  명령어, 상태 정보를 해석하여 컴퓨터 구성 �
 인출 사이클↓                                    ->   제어신호
 (MAR->Main Memory->MBR->IR)| => 명령어  =>| CU |->   제어신호
 Program state Register(PSR)| => 상태정보=>| CU |->   제어신호
-                                                ->   제어신호
+                                                ->   제어신호...
 
 ```
  
+### 3. 메모리
+
+데이터 저장장치
+
+- 자기(magnetic) 광학(Optical) 저장 매체를 사용한 데이터 저장
+
+### 3-1 주기억장치
+
+- SRAM, DRAM
+- CPU main mem 속도차이극복 -> Cash mem사용
+- CPU <-> registor <-> cash <-> main mem <-> secondary mem
+
+### 3-2 보조 기억장치
+
+- maginetic을 사용 : HHD, CD/DVD, magnetic tape
+- Semiconductor를 사용 : Flash Mem SSD
+
+### 3-3 메모리 계층 구조 
+```
+고속,저용량,비쌈                            저속,고용량,쌈
+CPU -> Register -> Cash -> main mem -> secondary mem
+```
+
+### 4. peripherals (주변 장치쓰)
+
+cpu와 메모리 주변에 위치, cpu보조, I/O 데이터를 관리하는 장치
+
+- 시스템 동작에 필요한 회로
+- 데이터 입출력 장치
+- cpu보조 장치
+
+### 4-1 시스템 동장에 필요한 주변장치
+
+- 시스템 동작에 필요한 회로
+- 클럭 발생 장치 
+- 전원 제어 장치
+- 리셋 장치 ( 리셋 신호를 생성 )
+- 타이머
+  - 이벤트 발생, 카운트, 시간 간격 측정
+
+### 4-2 데이터 입출력 관련 주변장치
+
+- 신호 변환장치
+  - ADC/DAC: 디지털 -아날로그 신호 변환
+- 디바이스 컨트롤러
+- 통신 장치
+  - router
+
+### 4-3 cpu 보조 장치
+
+- 연산 작업 부담을 덜어주는 회로
+- 보조 프로세서(Co-processor)
+- FPU (Floating Poing Unit)
+- MMU (Memory Management Unit)
+- MPU (Memory Protection Unit)
+- 등등.. 
+
+### 4. 🚌🚌 버스
+
+cpu, mem, periphrals 상호 연결하는 배선 집합쓰
+
+- 버스를 통해 데이터, 제어신호 송수신
+- 벼스 유형
+  - Adress bus : 주소 정보를 I/O, cpu 전달 (단방향)
+  - Data bus : 데이터 정보를 I/O, cpu 전달 (양방향)
+  - Control Bus : 제어신호를 모두 전달 (양방향)
+
+![systemBus](systemBus.jpeg)
+
+
