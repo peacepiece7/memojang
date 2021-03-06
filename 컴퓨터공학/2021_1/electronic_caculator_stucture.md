@@ -464,7 +464,7 @@ Write Back(WB): 데이터 처리결과를 레지스터나 메모리에 저장
 
 ### 3-2 명령어 사이클 실행 흐름
 
-![instructionStream](instructionStream.jpoeg)
+![instructionStream](instructionStream.jpeg)
 
 
 
