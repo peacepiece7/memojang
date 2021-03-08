@@ -169,7 +169,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
 컴퓨터 구조 (Computer Architecture)
 
 - SW 측면에서 바라보는 컴퓨터 특성
-- 프로그램의 논리적 수행에 직적접 영향을 주는 시스템 특성
+- **프로그램의 논리적 수행에 직적접 영향을 주는 시스템 특성**
 
 컴퓨터 구조적 특성 
 
@@ -189,7 +189,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
 컴퓨터 조직 (Computer Organization)
 
 - HW 측면에서 바라보는 컴퓨터 특성
-- Computer Architecture를 구현한 HW 구성품, 그들의 연결 방식
+- **Computer Architecture를 구현한 HW 구성품**, 그들의 연결 방식
 - 프로그래머에게 보이지 않는 세부 하드웨어
 
 컴퓨터의 조직적 특성
