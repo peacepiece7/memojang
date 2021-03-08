@@ -2,8 +2,8 @@
 
 학습목표
 
-- 전자계산기의 발전과정, 기능, 응요분야에 대해 설명하기
-- 컴퓨터의 기능 구성요소에 대해 설며하기
+- 전자계산기의 발전과정, 기능, 응용분야에 대해 설명하기
+- 컴퓨터의 기능 구성요소에 대해 설명하기
 - 컴퓨터의 데이터 처리 방식과 사용목적 등에 따라 분류하기
 
 ##  1. 전자계산기 소개
@@ -142,7 +142,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
   - 소형, 소비전력 최적화 프로세서
   - 임베디드 시스템 전용 프로세서
 - Mobile AP (Application Processor)
-  - CPU 뿐만 아니라 시스템 구현에 필요한 주변장치들을 SoC 형태로 집적화한 모바일 디바이스용 프로세서
+  - CPU 뿐만 아니라 시스템 구현에 필요한 주변장치들을 SoC(system on a chip) 형태로 집적화한 모바일 디바이스용 프로세서
   - GPU , 모바일 통신 모듈 ( HSDPA , WCDMA ) 내장
   - Snapdragon(Qualcomm ), Exynos (Samsung), TEGRA Nvidia ), Helio MediaTek ), A10 (Apple), Atom Z(Intel), OMAP (TI) ....
 - GPGPU (General Puerpose Computiong on Graphic Processor Unit)
