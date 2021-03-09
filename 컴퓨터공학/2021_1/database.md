@@ -555,6 +555,86 @@ string = false
 
 |개념적 구조|논리적 구조|물리적 구조|
 |:-:|:-:|:-:|
-|사용자 입장,db={entities,relationship)|컴퓨터가 처리할 수 있는 데이터모델|저장 미디어에서보는 데이터의 물리적 배치,구성|
+|사용자 입장,db={개체,관계)|컴퓨터가 처리할 수 있는 데이터모델|저장 미디어에서보는 데이터의 물리적 배치,구성|
 
 #### 1. 개념적 구조
+
+>개체 (entitiy)
+
+- 유무형의 객체
+- column 맨위에 아니면 왼쪽 한 줄에 적을 타이틀 말하는 거임 드럽게 어렵게 말하네
+- column맨 윗줄 첫칸들 or 왼쪽 한 줄에 적는 거 = attribute
+- attribute = 가장작은 논리적 단위, 물리적 단위는 bit에 해당
+
+> entity type
+
+- 개체 집합에 속한 개체 인스턴스(하나하나의 벨류)들이 공통으로 가지는 특정
+
+> relationship
+
+- 개체 사이의 연관성(무결성 유지할려고 관계 설정하는 거)
+
+#### 2. 논리적 구조
+
+- 데이터의 논리적 배치 구성을 말함
+
+과거 계층적 모델(tree),네트워크 모델(mesh)이 현제 객체 관계 모델로 바뀜
+
+#### 3. 물리적 구조
+
+- hard disk, ssd, dvd
+- user, programer는 인지, 파악하지 못함
+- 논리적 구조와 물리적 구조이의 mapping(데이터의 저장위치를 도표화 하는 것)은 DBMS가 지원함
+- 데이터의 독립성(data independency)를 가짐 (data depenpency을 해결해줌)
+
+### 관계형 데이터 베이스
+
+#### 1. 관계형 데이터 모델 (relational data model)
+
+- db에서 가장 많이 쓰이는 논리적 모델임
+
+1. 단순한 구조
+2. 집합론(set theory)에 기반한 모델
+3. sql이라는 비절차적 언어로 간단히 데이터 처리
+
+> **집합 (set function)**
+
+- Collection
+  - 동일한 type의 원소가 모여있는 군집
+
+|set|bag(multi-set|list|array|
+|:-:|:-:|:-:|:-:|
+|원소들의 중복 불가|원소의 중복 가능|원소의 중복 불가|원소의 중복 가능|
+|원소들 간 순서 없음|원소들 간 순서 없음|원소들 간 순서 있음|원소들 간 순서 있음|
+
+
+
+> **관계형 데이터 모델의 구성 요소**
+
+- structure : relation(table)
+- operation : relational algebra, relational calculus (대수, 해석)
+- constraint : integrity
+
+### 릴레이션 (relation)
+
+- 2 차원 테이블 구조
+- 테이블의 행 (Row): 튜플 (tuple)
+- 테이블의 열 (column)  속성 (attribute)
+
+![tableStructure](tableStructure.jpeg)
+
+R(A1,...,Ai,...,An) 일때
+R(A1,...,Ai,..,An) = relation schema(릴레이션 이름 + n개의 속성)
+Ai과 대응되는 Di = domain
+각각의 Ai = attribute
+tuple = set of attrubutes
+domain = type (Ai 와 대응하는 Di를 말하며, tpye을 뜻함, 정수만 받는다던가, 문자열만 받는다던가)
+schema = 속성들을 대표하는 이름 ( 학생, 성적, 일과, = category)
+
+⚡ column, row와는 개념이 다름! 
+     이미지와 대조해서 설명 하고 있지만 schema(속성을 대표하는 이름)가 첫번쨰 row에 올 수도 있고, 첫번쨰 column에 올 수도 있음  
+     이런 문제 떄문에 구성 요소가 이해가 안 되는 경우가 있었음!!
+
+
+
+
