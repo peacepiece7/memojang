@@ -289,16 +289,16 @@ ERP의 구축 배경
 #### 01. IDS(Integrated Data store)
 
 - 최초 범용 목적의 DBMS
-- **네트워크 데이터 모델**에 기반
+- **네트워크 데이터 모델**(=mesh structure data model)에 기반
 - 데이터 모델을 명시할 수 있는 **데이터 구조도**를 제안
 
 #### 02. IMS(Information Management System) DBMS
 
 - 1960s IBM에서 제시
-- **계층 데이터 모델**이라는 또 다ㅏ른 데이터 표현의 기반이 됨
+- **계층 데이터 모델**(=tree structure data model)이라는 또 다른 데이터 표현의 기반이 됨
 
 #### 03. 1세대 DBMS
-
+Cancel Changes
 - 1970 컴퓨터 제조사들이 DBMS 제작 판매하기 시작
 - 네트워크 모델, 계층 모델에 기초를 둠
 
