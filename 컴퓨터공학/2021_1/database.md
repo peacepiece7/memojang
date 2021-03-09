@@ -497,4 +497,64 @@ db 설계와 운영
 
 #### 01. DB 용어의 기원
 
-나중에 읽어보고 복사 붙여 넣기 하자 ㅋㅋㅋ 이거는 외을 게 아님 걍 읽어보자
+63년 SDC사 개최 1차 심포지엄의 제목
+`development and management of a compute-centered data base`
+에서 시작됨
+
+#### 02. 데이터베이스 시스템 용어의 기원
+65년 SDC사 2차 심포지엄의 제목
+`computer-centered data base systems`
+에서 시작됨
+
+#### 03. 주요 사건들
+
+> Relational data model등장 (70s)
+> System R 등장 (IBM, 74s 최초 관계형 DB)
+> Oracle 등장 (SDL 79s-> 83s Oracl 개명)
+
+
+#### 04. 최근
+
+- big data 등장(특징- v3 , volume, velocity, variety)
+- data minning (정보 추출, 의사결정에 사용)
+- sns
+- 분산 병렬 처리 (mapReduce, Spark 등장)
+  - 데이터량이 증가, 일반 컴퓨터로 나눠서 데이터 처리 제안
+ 
+# 관계형 데이터 베이스 (2주차 1차시)
+
+
+
+학습목표
+
+```
+데이터 모델의 구성 요소를 설명할 수 있다 .  
+관계형데이터 모델의 개념을 설명할 수 있다 .  
+```
+
+## 데이터 모델의 개념
+
+### 데이터 모델
+
+1. 구조(structure), 개체 타입간 관계
+2. 연산(operation), 데이터 처리 기법 작업의 명세
+3. 제약조건(constraint), 논리적 제약
+
+```
+for instance integer
+structure = ... -2,-1,0,1,2 ...
+operation = +,-,x,/
+constraint = {
+interger = ture, 
+float = false, 
+string = false
+}
+```
+
+### 데이터 베이스 구성 요소
+
+|개념적 구조|논리적 구조|물리적 구조|
+|:-:|:-:|:-:|
+|사용자 입장,db={entities,relationship)|컴퓨터가 처리할 수 있는 데이터모델|저장 미디어에서보는 데이터의 물리적 배치,구성|
+
+#### 1. 개념적 구조
