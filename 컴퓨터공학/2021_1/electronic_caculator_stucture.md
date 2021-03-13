@@ -2,8 +2,8 @@
 
 학습목표
 
-- 전자계산기의 발전과정, 기능, 응요분야에 대해 설명하기
-- 컴퓨터의 기능 구성요소에 대해 설며하기
+- 전자계산기의 발전과정, 기능, 응용분야에 대해 설명하기
+- 컴퓨터의 기능 구성요소에 대해 설명하기
 - 컴퓨터의 데이터 처리 방식과 사용목적 등에 따라 분류하기
 
 ##  1. 전자계산기 소개
@@ -142,7 +142,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
   - 소형, 소비전력 최적화 프로세서
   - 임베디드 시스템 전용 프로세서
 - Mobile AP (Application Processor)
-  - CPU 뿐만 아니라 시스템 구현에 필요한 주변장치들을 SoC 형태로 집적화한 모바일 디바이스용 프로세서
+  - CPU 뿐만 아니라 시스템 구현에 필요한 주변장치들을 SoC(system on a chip) 형태로 집적화한 모바일 디바이스용 프로세서
   - GPU , 모바일 통신 모듈 ( HSDPA , WCDMA ) 내장
   - Snapdragon(Qualcomm ), Exynos (Samsung), TEGRA Nvidia ), Helio MediaTek ), A10 (Apple), Atom Z(Intel), OMAP (TI) ....
 - GPGPU (General Puerpose Computiong on Graphic Processor Unit)
@@ -169,7 +169,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
 컴퓨터 구조 (Computer Architecture)
 
 - SW 측면에서 바라보는 컴퓨터 특성
-- 프로그램의 논리적 수행에 직적접 영향을 주는 시스템 특성
+- **프로그램의 논리적 수행에 직적접 영향을 주는 시스템 특성**
 
 컴퓨터 구조적 특성 
 
@@ -189,7 +189,7 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
 컴퓨터 조직 (Computer Organization)
 
 - HW 측면에서 바라보는 컴퓨터 특성
-- Computer Architecture를 구현한 HW 구성품, 그들의 연결 방식
+- **Computer Architecture를 구현한 HW 구성품**, 그들의 연결 방식
 - 프로그래머에게 보이지 않는 세부 하드웨어
 
 컴퓨터의 조직적 특성
@@ -467,4 +467,93 @@ Write Back(WB): 데이터 처리결과를 레지스터나 메모리에 저장
 ![instructionStream](instructionStream.jpeg)
 
 
+# 컴퓨터의 성능
+
+학습목표
+```
+컴퓨터 성능 평가 기준과 방법에 대해 설명할 수 있다
+컴퓨터 성능 향상 방법에 대해 설명할 수 있다 .
+```
+
+## 컴퓨터의 성능 평가
+
+### 1. 컴퓨터 평가 요소
+
+컴성능 : 프로그램 실행 속도, 실시간성
+가격
+크기
+소비전력
+신뢰성
+보안성
+
+### 1-1 컴퓨터 성능
+
+프로그램 실행 속도에 영향을 주는 요소
+- cpu
+- isa
+- 컴퓨터의 하드웨어 구조 : 프로세서 구조, 캐시 및 메모리 계층 구조
+- 운영체제 성능
+- 컴파일러 효율
+- 프로그램 구현에 사용된 프로그래밍 언어 및 프로그래밍 기술
+
+아래 네 가지가 제일 중요!
+```
+컴퓨터 구조, 운영체제, 컴파일러, 프로그래밍 기술
+```
+
+### 2. 컴퓨터 성능 표시
+성능 표시 방법
+- CPU 클럭 속도
+- CPI
+- MIPS
+- MFLOPS
+
+### 2-1 클럭 속도
+cpu 클럭 속도
+- 클럭 주파수
+일반적cpu 성능은 cpu 클럭 속도에 비례
+- cpu클럭 = 시스템 클럭
+- cpu 클럭 속도는 cpu hw 설계, 구현 방법에 따라 결정됨
+
+### 2-1-1 시스템 클럭
+
+system clock
+- 컴퓨터에서 사용하는 기본 클럭
+- 컴퓨터 구성 요소들의 모든 동작을 동기화 하는 신호
+- 클럭 주파수로 표시
+memory clock
+- 메모리가 사용하는 클럭으로 시스템클럭보다 저속임
+- 일반적으로 사용되지 않고 동기화 메모리 클럭의 경우 사용한다고 함
+
+### 2-1-2 클럭 주파수
+
+클럭 주파수 (clock frequncy)
+- 초당 클럭 신호 변화율 : 초당 클럭 펄스 수 (pulses per second)
+- hertz로 표시(50MHz, 4GHz)
+
+### 2-1-3 Clock Cycle Time
+
+Clock Cycle
+- Clock Pulse Period
+Clock Cycle Time(CCT)
+- 클럭 사이클 사이의 시간 간격
+
+### 2-1-4 cpu time
+cpu time
+- 명령어 실행에 cpu가 소모한 시간
+- cpu time = cpu clock cycles x clock cycle time
+- cpu time = cpu clock cycles / clock frequency
+
+프로그램 실행 속도 향상 방법
+- 클럭 주파수를 높임
+- 프로그램 실행에 필요한 클럭 사이클 수를 
+
+명령어 처리 병렬화로 하나의 cpu 클럭 사이클 동안 여러 개의 명령어를 실행 가능
+- cpu 클럭 속도가 프로그램 실행 속도를 표현하기에 불충분함
+
+### 2-2 CPI (Cycle Per Instruction)
+
+명령어 하나를 실행하는데 필요한 클럭 사이클 수
+명령어 유형에 따라 실행에 필요한 클럭 사이클 수가 다르기 때문에
+평균 cpu값을 사용해서 프로그램 실행 성능을 표시함
 
