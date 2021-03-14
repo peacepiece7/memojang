@@ -1244,6 +1244,7 @@ Booting, bootstrapping( 부팅, 부트스트래핑)
 - 시스템에서 명령 해석기를 사용해 대화 형태로 호출
 
 운영체제가 제공하는 일반적인 시스템 호출
+
 ![systemCall](systemCall.jpeg)
 
 ## 운영체제의 구조 
