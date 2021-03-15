@@ -557,3 +557,43 @@ cpu time
 명령어 유형에 따라 실행에 필요한 클럭 사이클 수가 다르기 때문에
 평균 cpu값을 사용해서 프로그램 실행 성능을 표시함
 
+# 논리 회로의 개요
+
+학습 목표
+```
+아날로그와 디지털의 차이를 설명할 수 있다
+컴퓨터에 사용하는 2 진법 , 8 진법 , 16 진법 연산에 대해 설명할 수 있다
+부울대수와 진리표 , 논리 게이트를 이해하고 , 논리회로를 표현할 수 있다
+```
+## 1. 아날로그와 디지털
+
+### 1. Analog Signal
+- 아날로그 신호
+- 시간에 따라 연속적으로 변하는 신호
+- 물리량 표현에 사용 ( 전압, 전류, 온도..)
+### 2. Digital Signal
+- 시간에 따라 불연속적인(discrete) 값
+- 특정 값으로면 표현 가능
+- 장점
+  - 신호처리 용이
+  - 잡음에 강함
+  - 시스템 구현이 쉬움
+- 단점
+  - 아날로그 신호를 완벽하게 표혈할 수 없음(변환 오류가 필연적 발생)
+
+### 3. 아날로그 신호의 디지털 변환
+
+ADC (Analog-to-Digital Converter)
+- 연속적으로 변하는 아날로그 전기 신호를 불연속적인 디지털 신호로 변환하는 회로
+
+DAC (Digital to Analog Converter)
+- 디지털 신호를 연속적인 아날로그 신호로 변환하는 회로```
+```
+input a analog signal => ADC => DP(Digital Processor) => DAC => Output a Analog signal
+input a analog signal => ADC => DP(Digital Processor) => Output a Digital signal
+```
+
+### 3-1 아날로그 신호의 디지털 변환 과정
+
+
+```
