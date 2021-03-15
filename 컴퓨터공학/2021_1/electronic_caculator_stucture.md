@@ -717,7 +717,7 @@ Sample & Holding
 
 ## 3. 논리 회로 표현
 
-### 1. Boolean algebra
+### 1. Boolean c (부울 대수)
 
 - 부울 대수
   - 변수 값이 true or false, 1 or 0으로 정의 되는 대수
@@ -727,9 +727,9 @@ Sample & Holding
   - 기본 연산(basic operation) 2차 연산 (secondary operation)으로 구성
 
 - 기본 연산
-  - AND
-  - OR
-  - NOT
+  - AND(conjunction) ^로 표기
+  - OR(disjunction) v로 표기
+  - NOT(negation) ㄱ로 표기(기역아님..)
  
  |X|Y|Y^X|XvY|ㄱX(NOT)|
  |:-:|:-:|:-:|:-:|:-:|
@@ -737,3 +737,89 @@ Sample & Holding
  |1|0|0|1|0|
  |0|1|0|1|1|
  |1|1|1|1|0|
+ 
+- 2차 연산
+  - material implication : x가 1 이면 결과는 y, x가 0이면 결과는 1
+  - exclusive OR (XOR) : x,y가 서로 다른 값을 가지면 1
+  - equivalence(XNOR) : x,y가 같은 값을 가질 때 1
+  
+  |x|y|x->y|x⊕y|x≡y|
+  |:-:|:-:|:-:|:-:|:-:|
+  |0|0|1|0|1|
+  |1|0|0|1|0|
+  |0|1|1|1|0|
+  |1|1|1|0|1|
+  
+### 1-2 부울 법칙
+### 1-2-1 드 모르간의 법칙
+### 1-3 부울 방정식
+### 2 진리표
+
+진리표 Truth Table
+
+- 논리 변수 값들의 조합과 각 변수 값 조합에 대한 논리연산 결과 값을 정의한 표
+![truthTable](truthTable.jpeg)
+
+### 3. 논리 게이트
+
+Logic gate
+- 기본 울 연산을 구현한 전자회로
+- 트렌지스터를 사용한 집적회로 형태로 구현
+
+![logic gate](logicalGate.jpeg)
+
+### 3-1 타이밍 다이어그램
+
+시간에 따른 입력신호, 출력신호의 변화를 보여주는 그래프
+![timmingDiagram](timmingDiagram.jpeg)
+
+### 3-2 전파 지연
+
+- 입력신호 변화에 따른 출력신호의 변화가 발생하는 시간 차이
+- 게이트 지연(gate delay) 또는 전파 지연(propagation delay)이라고 함
+- 0 -> 1, 1 -> 0으로 갈때 그래프가 수직 상승, 하강하는게 아니라 시간에 따라 하강, 상승하는 곡선을 그림
+- 그 차이가 아주 작아서 보통은 수직으로 그림
+
+### 4. 논리 회로 표현
+
+논리 회로 logic circuit
+- 논리회로 구성요소들과 그들간의 상호 연결 관계를 표현한 회로
+  - 논리 회로의 구성 소요로는 조합 회로, 순차 회로가 있음
+
+논리 회로의 표현 방법
+1. boolean qeuation : 부울 방정식으로 표현
+2. schematic : 그래픽 심볼로 표현
+3. HDL description : HDL(Hardware Description Language)를 사용하여 논리회로 표현
+
+
+### 4-1 논리회로의 shcematic 표현
+ - symbol(and,or,xor gate logic gate)과 net(심볼을 연결하는 bus)로 표현
+
+### 4-2 논리회로의 HDL 표현
+- 텍스트를 사용하여 표현
+  - 대표적 HDL로 VHDL, verilog, HDL
+> 내용이 많지만 나한테 중요하지 않은? 관계로 패스!
+
+
+### 5. 논리회로 간략화
+
+- 논리회로 간략화
+  - 로직 게이트 줄이기
+  - 전파 지연 감소
+- 간략화 방법
+  - boolean algebra를 사용한 간략화
+  - karnaugh map(카르노 맵)을 사용한 간략화
+    - 입력 변수 4개 이하 적용 용이
+  - quine-macluskey 알고리즘
+    - 입출력 변수 개수에 제한
+  - ECAD toll을 사용한 간략화
+    - ESPRESSO 알고리즘
+### 5-1 카르노 맵(karnaugh map)
+
+- 진리표의 2차원적 표현 방법
+- 논리 표현식을 맵 형태로 표현한 후
+- 상호 연관관계를 패턴으로 분석하여 논리를 단순화해 나가는 방법
+- 이산 수학강의에 잘 설명되어 있음!
+
+
+
