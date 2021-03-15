@@ -467,7 +467,7 @@ Write Back(WB): 데이터 처리결과를 레지스터나 메모리에 저장
 ![instructionStream](instructionStream.jpeg)
 
 
-# 컴퓨터의 성능
+# 컴퓨터의 성능 ( 2주차 1차시 )
 
 학습목표
 ```
@@ -538,6 +538,8 @@ Clock Cycle
 Clock Cycle Time(CCT)
 - 클럭 사이클 사이의 시간 간격
 
+![clock cycle Time](clockCycleTime.jpeg)
+
 ### 2-1-4 cpu time
 cpu time
 - 명령어 실행에 cpu가 소모한 시간
@@ -551,9 +553,233 @@ cpu time
 명령어 처리 병렬화로 하나의 cpu 클럭 사이클 동안 여러 개의 명령어를 실행 가능
 - cpu 클럭 속도가 프로그램 실행 속도를 표현하기에 불충분함
 
+
+> CPI, MIPS. MFOLPS는 이미지와 공식이 추가되지 않았음!!!
+> CPI, MIPS. MFOLPS는 이미지와 공식이 추가되지 않았음!!!
+> CPI, MIPS. MFOLPS는 이미지와 공식이 추가되지 않았음!!!
+> CPI, MIPS. MFOLPS는 이미지와 공식이 추가되지 않았음!!!
+
+
 ### 2-2 CPI (Cycle Per Instruction)
 
 명령어 하나를 실행하는데 필요한 클럭 사이클 수
-명령어 유형에 따라 실행에 필요한 클럭 사이클 수가 다르기 때문에
-평균 cpu값을 사용해서 프로그램 실행 성능을 표시함
+
+
+평균 CPI = 시그마 n, i=1 (CPIi x Ii) / Ic
+
+i = 명령어 유형, n개의 명령어가 있다 가정
+Ii = i 번째 유형 명령어의 수
+CPIi = i 번째 유형 명령어의 CPI
+Ic = 프로그램이 포함하고 있는 전체 명령어 수             
+
+### 2-3 MIPS (Millions of Instruction Per Second)
+### 2-4 MFLOPS (Millions of Floating-Point Operations Per Second)
+
+
+### 3. 벤치마크 (Benchmark)
+
+3. 벤치마크
+
+벤치마크(Benchmark)
+- **서로 다른 프로세서의 성능을 상대 비교하는 방법**
+- 벤치마크 테스트 (BMT: BenchMark Test)
+- 벤치마크에 사용되는 프로그램 : 벤치마크 프로그램
+
+ 벤치마크 프로그램의 특성
+- 고급 언어로 작성되며, 서로 다른 기계들에서 호환성을 유지
+- 시스템 프로그래밍, 수치적 프로그래밍, 또는 상용 프로그램과 같은 특정 응용 분야에서 대표성을 보이는 프로그램이어야 함
+- 성능 측정이 쉬워야 함
+- 널리 보급될 수 있어야 함
+
+### 3-1 벤치마크 스위트
+
+벤치마크 스위트(Benchmark Suite)
+- **특정 응용 분야 프로그램이나 시스템 프로그램을 벤치마크하는데 사용되는 프로그램 집합**
+- 고급 언어로 정의된 프로그램들의 집합
+
+주요 벤치마크 스위트
+
+- **BAPCo(Business Application Performance Corporation)**
+  - 범용 OS(Windows, Android, iOS) 및 응용 프로그램기반 PC 벤치마킹 - MobileMark, SYSmark, TabletMark
+- **EEMBC(Embedded Microprocessor Benchmark Consortium)**
+  - 임베디드 시스템의 하드웨어 및 소프트웨어 성능 평가를 위한 벤치마킹 - CoreMark, IoTMark
+- **SPEC(Standard Performance Evaluation Corporation)**
+  - 컴퓨터 성능 평가에 필요한 표준 테스트 세트를 관리하는 단체 - SPECint, SPECfp
+
+### 3-2 SPEC 벤치마크 스위트
+  
+SPEC 벤치마크 스위트
+- SPEC CPU2006: 프로세서 중심(Processor-intensive) 성능 평가
+- CINT2006: 정수 연산 성능 평가
+- CFP2006: 실수 연산 성능 평가
+- SPECjvm2008: JVM 클라이언트 플랫폼의 하드웨어 및 소프트웨어 결합 성능 평가
+- SPECjbb2013:서버측 자바 기반상 거래 응용프로그램 성능 평가 
+- SPECapc: 3D-intensive 프로그램 성능 평가
+- SPECweb99:웹 서버들의 성능 평가
+- SPECmail2001:메일 서버 성능 평가
+
+### 3-3 Synthetic 벤치마크
+Synthetic 벤치마크
+- 많은 응용프로그램들을 통계 분석한 결과를 바탕으로 인위적으로 작성된 프로그램을 사용하여 성능을 평가하는 방법
+- 대표적 Synthetic 벤치마크
+  - 웻스톤(Whetstone): 1972년 Algol 언어로 작성. 주로 실수 연산을 포함
+  - 드라이스톤(Dhrystone): 1984년 Ada 언어로 작성. 주로 정수 연산을 포함
+
+## 컴퓨터의 성능 향상
+
+### 1. 컴퓨터 성능 향상 방법
+
+- cpu 처리속도 향상을 통한 성능 향상
+- 컴퓨터 구성 요소들의 성능 불균형 해소(perfomance balancing)를 통한 성능 향상
+  - cpu, mem, peripharals 처리속도 차이 해결
+- 컴퓨터 동작속도 향상 및 구조 개선을 통한 성능 향상
+
+### 1-1 cpu 처리속도 향상
+
+- branch prediction (분기예측)
+- data flow analsis (데이터 흐름 분석)
+
+### 1-1-1 branch prediction
+
+- 분기 명령어 다음에 실행해야 할 명령어를 예측, 실행할 명령어의 사전 실행 가능
+
+### 1-1-2 data flow analsis
+
+- 명령어들 사이의 데이터 의존성(data dependency)을 분석해서 최적의 실행 순서르 도출함
+- 의존성이 없는 명령어들끼리의 순서를 변경함(더 빠르게 실행할 수 있는 쪽으로)
+
+### 1-2 성능 불균형 해소
+
+cpu, memory, peripherals 처리 속도 차이를 해결하여 성능 향상할 수 있음
+
+아래 두 가지의 불균형 해소가 성능에 영향을 미침
+
+- cpu의 데이터 처리속도와 메인 메모리 엑세스 속도 차이
+- cpu와 주변 입출력 장치 사이의 데이터 처리의 속도 차이
+  - buffer 사용
+  - 고속 버스 사용하여 연결함
+
+### 1-2-1 cpu의 데이터 처리속도와 메인 메모리 엑세스 속도 차이
+
+해결방법
+
+- cpu와 메모리 **사이의 데이터 버스 폭(data bus width)을 확장**함
+  - ex) 데이터 버스 폭이 16-bit였다면 32-bit로
+- **연결 대역폭(bandwidth)를 확장**함
+  - 고속 버스, 계층적 버스를 사용함
+  - ex) 16MHz 였다면 33MHz로 확장
+- cache를 사용해서 메모리에 접근함(cache memory)
+
+### 1-3 컴퓨터의 동작 속도 향상
+
+- 시스템 클럭 속도를 증가시켜서 동작 속도를 올릴 수 있음
+  - 소비 전력이 증가하는 단점이 있음,
+  - RC Delay 증가 : 동작 주파수가 올라감으로 RC에 의한 전압 강하 심화됨
+  - clock skew(클럭 왜곡): 클럭 전달 경로의 길이 차이로 왜곡 현상 증가함
+
+
+> 소비전력 파트는 공식이랑 이미지가 삽입되지 안았음!!! (나중에 추가)
+> 소비전력 파트는 공식이랑 이미지가 삽입되지 안았음!!! (나중에 추가)
+> 소비전력 파트는 공식이랑 이미지가 삽입되지 안았음!!! (나중에 추가)
+> 소비전력 파트는 공식이랑 이미지가 삽입되지 안았음!!! (나중에 추가)
+
+
+### 1-3-1 소비전력
+
+- 주파수 증가 -> 소비 전력 증가
+- 소비전력 : 정적 소비전력 + 동적 소비전력
+- 정적 소비전력 : 논리 레벨 0 or 1 을 유지하는 상태의 소비 전력
+- 동적 소비전력 : 논리 레벨 변동에 따른 소비 전력
+
+### 1-3-2 RC Delay
+
+- RC Delay 증가 : 동작 주파수가 올라감에 따라 RC에 의한 전압 강하가 심화
+
+### 1-3-3 Clock Skew
+
+- RC Clock Skew 발생
+  - 클럭 전달 경로 길이 차이로 인한 클럭 신호의 전달 시간 차이 발생
+    - 클럭 왜곡
+    - 동작 타아밍 편차로 인한 회로의 오동작 가능성
+
+
+### 1-4 컴퓨터 조직 및 구조 개선
+
+컴퓨터의 실행 하드웨어 구조 개선
+- 여려개의 명령어를 병렬로 동시 실행함으로 성능 개선
+
+1. 파이프 라이닝(pipelining) : 명령어의 중첩 overlapped 실행
+2. 슈퍼 스칼라 (super scalar) : 여러 명령어들이 동시 concurrent 실행
+3. Multi-core or Multi-processor
+
+### 1-4-1 pipelining
+
+파이프라이닝 : 명령어의 중접 실행
+컴퓨터 시스템에서 파이프 라이닝 실행 예시가 있음! 기억 안나면 참고
+
+
+원래 파이프 라이닝은 아래의 순서대로 진행되는데
+```
+FI (Fetch Instruction, 명령어 인출)
+DI (Decode Instruction, 명령어 해독)
+FO (Fetch Operand, 피연산자 인출(주소 인출))
+EI (Execute Instruction, 명령어 실행)
+```
+
+arm processor는 아래 순서인 듯 잘 모르곘네 ^)^
+```
+IF (instruction fetch)
+OF (operand Fatch)
+EX (excute instruction)
+WB (??)
+```
+
+- pipeline
+  - 하나의 명령어가 한 단계를 마치면 바로 뒤를 이어서 다음 명령어가 실행
+- super-pipeline 
+  - 명령어가 시작하고 그 단계가 끝나지도 않았는데 바로 다음 명령어를 중첩해서 실행 시켜버림
+  - 시작을 늦게 하는 방식
+
+### 1-4-3 multi-core
+
+- 동일 칩 상에 여러개의 cpu 코어들을 직접한 프로세서
+- 여러 개의 cpu 코어가 큰 용량의 캐시를 공유함
+- 클럭 속도 높이지 않고 성능 개선이 가능해짐
+- 프로세서 내부 성능 향상은 복잡도 증가의 제곱근에 비례한다고 알려짐
+- 프로그램이 여러 프로세서에 효과적으로 분산되면, 프로세서 수 2배 = 성능도 거의 2배
+
+![ARMprocessor](ARMprocessor.jpeg)
+
+GPGPU(General Purpose Computing on Graphic Processor Unit)
+- 병렬 처리 효과적음 feat.💰bit-coin
+- 그래픽 처리 전용 프로세서를 범용 응용 프로그램 실행에 활용
+
+CPU + GPU 혼용 프로세서
+- 순차 처리 -> CPU
+- 병렬 처리, 많은 계산량 -> GPU
+
+
+> 아래 두 개도 공식이 너무 복잡해서 걍 넘김 ^)^
+> 아래 두 개도 공식이 너무 복잡해서 걍 넘김 ^)^
+> 아래 두 개도 공식이 너무 복잡해서 걍 넘김 ^)^
+
+
+### 2. Amdahl의 법칙
+### 3. Moore의 법칙
+
+# 논리 회로의 개요
+
+학습내용과 목표
+```
+아날로그와 디지털
+진법 표현
+논리회로 표현
+1. 아날로그와 디지털의 차이를 설명할 수 있다.
+2. 컴퓨터에 사용하는 2진, 8진, 16진법 연산 설명할 수 있다.
+3. 부울대수 진리표, 논리게이트를 이해하고 표현할 수 있다.
+```
+
+## 1. 아날록와 디지털
+
+### 1. 아날로그 신호
 
