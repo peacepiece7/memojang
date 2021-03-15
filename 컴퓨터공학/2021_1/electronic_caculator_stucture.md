@@ -714,3 +714,26 @@ Sample & Holding
   - hexadecimal : 0x, 0x90BBFDA9
 
 ### 3-1 진법 변환
+
+## 3. 논리 회로 표현
+
+### 1. Boolean algebra
+
+- 부울 대수
+  - 변수 값이 true or false, 1 or 0으로 정의 되는 대수
+### 1.1 boolean operation
+- 부울 연산
+  - 부울 대수에서 정의한 연산
+  - 기본 연산(basic operation) 2차 연산 (secondary operation)으로 구성
+
+- 기본 연산
+  - AND
+  - OR
+  - NOT
+ 
+ |X|Y|Y^X|XvY|ㄱX(NOT)|
+ |:-:|:-:|:-:|:-:|
+ |0|0|0|0|1|
+ |1|0|0|1|0|
+ |0|1|0|1|1|
+ |1|1|1|1|0|
