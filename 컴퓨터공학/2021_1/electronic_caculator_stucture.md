@@ -783,3 +783,269 @@ CPU + GPU 혼용 프로세서
 
 ### 1. 아날로그 신호
 
+# 논리 회로의 개요
+
+학습 목표
+```
+아날로그와 디지털의 차이를 설명할 수 있다
+컴퓨터에 사용하는 2 진법 , 8 진법 , 16 진법 연산에 대해 설명할 수 있다
+부울대수와 진리표 , 논리 게이트를 이해하고 , 논리회로를 표현할 수 있다
+```
+## 1. 아날로그와 디지털
+
+### 1. Analog Signal
+- 아날로그 신호
+- 시간에 따라 연속적으로 변하는 신호
+- 물리량 표현에 사용 ( 전압, 전류, 온도..)
+### 2. Digital Signal
+- 시간에 따라 불연속적인(discrete) 값
+- 특정 값으로면 표현 가능
+- 장점
+  - 신호처리 용이
+  - 잡음에 강함
+  - 시스템 구현이 쉬움
+- 단점
+  - 아날로그 신호를 완벽하게 표혈할 수 없음(변환 오류가 필연적 발생)
+
+### 3. 아날로그 신호의 디지털 변환
+
+ADC (Analog-to-Digital Converter)
+- 연속적으로 변하는 아날로그 전기 신호를 불연속적인 디지털 신호로 변환하는 회로
+
+DAC (Digital to Analog Converter)
+- 디지털 신호를 연속적인 아날로그 신호로 변환하는 회로```
+```
+analog signal => ADC => DP(Digital Processor) => DAC => Analog Signal
+analog signal => ADC => DP(Digital Processor) => Digital Data
+```
+
+### 3-1 아날로그 신호의 디지털 변환 과장
+
+Sample & Holding
+- 연속적으로 변하는 아날로그 신호를 sampling하여 일정 시간동안 유지(Holding) 시키는 방법
+
+양자화 및 부호화 (Quantization & Coding)
+- 샘플링한 신로를 디지털 데이터로 표현
+
+`Analog Signal ->  Sample & Holding -> Quantization & Coding -> Digital Data`
+
+### 3-2 ADC 동작 예시
+
+![ADCworkFlow](ADCworkFlow.jpeg)
+
+### 3.3 ADC 방법
+
+> 그래프가 너무 많이 나오고 굳이 외울 필요는 없는 거 같아서 이미지는 생략 ! 
+#### 1. Direct-conversion ADC
+- 병렬로 ADC를 수행함
+- 가장 빠른 변환 방법
+- 가장 많은 하드웨어 사용
+- 높은 전력 소모
+- Flash ADC or Parallel ADC로 알려짐
+
+#### 2. Successive-approximation ADC
+- DAC 와 비교기를 사용하여 MSB 부터 LSB 까지 추정하면서 변환
+- 연속적 관계 ADC
+- EOC : end of conversion
+- SAR : SA Registor
+- S/H : Sample & Holder
+- 비교적 간단한 회로
+- 긴 변환 시간
+
+#### 3. Ramp-compare ADC
+- Free running 이진 카운터와 DAC , 비교기로 구성
+- CTR : Binary Counter
+- DAC : Digital to Analog Converter
+- SRG : Shift Register
+- Stairstep Ramp 또는 Counter ADC 로 알려짐
+
+### 3-4 ADC 변환 에러
+
+- 양자화 에러(Quantization Error)
+  - 연속적인 아날로그 신호를 비연속적인 디지털 코드로 양자화 함으로 생기는 에러
+- 절대 에러 (Absolute Accuracy)
+  - 실제 값과 변환 값의 최대 차이의 값
+  - Offset Error. Gain Error, Integral/Differential Non-lineraity(적분/미분 비선형)error 로 표시 
+
+### 3-4-1 offset error
+
+- 첫 번째 변환(0x00 에서 0x01) 시 , 실제 값과 변환 값 사이의 오차
+- 실제 값과 변환 값 사이의 오차가 일정
+
+
+### 3-4-2 Gain error
+
+- 마지막 변환 (0xFE 에서 0xFF) 시 , 실제 값과 변환 값 사이의 오차
+- 처음엔 오차가 거의 없다가 마지막 으로 갈수록 변환 값이 커짐
+
+### 3-4-3 INL error
+- intergral Non-linearity
+- 변환 과정에서 발생한 실제 값과 변환 값의 최대 차이 값
+- 지그재그로 변환 값이 바뀜
+
+### 3-4-4 DNL error
+- differential Non-linearity 
+- 실제 코드 변환폭과 변환 시 발생한 변환폭의 최대 차이 값
+  - 변환폭 : 다음 변환까지의 입력 신호 변동폭
+- 계단 모양으로 변환 값을 받음, 다음 신호가 올 떄 까지 변환된 ADC 그래프가 앞으로 기어감
+
+### 3-5 ADC 선택 기준
+- 변환 속도 : 100us이상->고가
+- 해상도 : 8,10,12bit가 이상적
+- 출력레벨: TTL, CMOS
+- 안정도: 온도변화 안정성
+- 아날로그 입력 극성(polarity) : Unipolar, Bipolar
+
+## 2. 진법 표현
+
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+
+### 1. 바이너리
+
+- Binary : (0 or 1 ) 2개의 상태로 표현되는 숫자  
+- Binary Digit : 바이너리로 표현되는 숫자  
+- 전자회로의 전압 값(high,low)로 구분
+
+## 2. 2진법
+
+- 두 개의 숫자 (0 , 1)로 표현되는 수 체계 
+```
+10진수(decimal) 표현
+𝟕𝟐𝟒.𝟓 = 𝟕×𝟏𝟎^𝟐+𝟐×𝟏𝟎^𝟏+𝟒×𝟏𝟎^𝟎+𝟓×𝟏𝟎^−𝟏
+2진수 (bynary) 표현
+(𝟏𝟏𝟎𝟏𝟎𝟏.𝟏𝟏)𝟐bi = 𝟑𝟐+𝟏𝟔+𝟒+𝟏+𝟎.𝟓+𝟎.𝟐𝟓 = (𝟓𝟑.𝟕𝟓)𝟏𝟎dec
+```
+
+### 2-1 2진 소수점
+- bynary point(2진 소수점)
+- MBS ( Most Significant Bit )
+  - 2진 표현 값중 가장 최상위 자리 수
+- LSB ( Least Significant Bit )
+  - 2진 숫자로 표현된 값의 최하위 자리의 수
+
+### 2-2 2진 표시 단위
+- 1k = 1024, 10진과 다르게 표기함
+
+### 2-3 2진법 변환
+### 2-4 2진법 연산
+### 3. 8진/16진법
+
+- octal (base 8), Hexadecimal(base 16)
+- 프로그램 에서의 진법 표시
+  - bynary : b, b00001010
+  - decimal : 5594312
+  - octal : 0, 0045676765
+  - hexadecimal : 0x, 0x90BBFDA9
+
+### 3-1 진법 변환
+
+## 3. 논리 회로 표현
+
+### 1. Boolean c (부울 대수)
+
+- 부울 대수
+  - 변수 값이 true or false, 1 or 0으로 정의 되는 대수
+### 1.1 boolean operation
+- 부울 연산
+  - 부울 대수에서 정의한 연산
+  - 기본 연산(basic operation) 2차 연산 (secondary operation)으로 구성
+
+- 기본 연산
+  - AND(conjunction) ^로 표기
+  - OR(disjunction) v로 표기
+  - NOT(negation) ㄱ로 표기(기역아님..)
+ 
+ |X|Y|Y^X|XvY|ㄱX(NOT)|
+ |:-:|:-:|:-:|:-:|:-:|
+ |0|0|0|0|1|
+ |1|0|0|1|0|
+ |0|1|0|1|1|
+ |1|1|1|1|0|
+ 
+- 2차 연산
+  - material implication : x가 1 이면 결과는 y, x가 0이면 결과는 1
+  - exclusive OR (XOR) : x,y가 서로 다른 값을 가지면 1
+  - equivalence(XNOR) : x,y가 같은 값을 가질 때 1
+  
+  |x|y|x->y|x⊕y|x≡y|
+  |:-:|:-:|:-:|:-:|:-:|
+  |0|0|1|0|1|
+  |1|0|0|1|0|
+  |0|1|1|1|0|
+  |1|1|1|0|1|
+  
+### 1-2 부울 법칙
+### 1-2-1 드 모르간의 법칙
+### 1-3 부울 방정식
+### 2 진리표
+
+진리표 Truth Table
+
+- 논리 변수 값들의 조합과 각 변수 값 조합에 대한 논리연산 결과 값을 정의한 표
+![truthTable](truthTable.jpeg)
+
+### 3. 논리 게이트
+
+Logic gate
+- 기본 울 연산을 구현한 전자회로
+- 트렌지스터를 사용한 집적회로 형태로 구현
+
+![logic gate](logicalGate.jpeg)
+
+### 3-1 타이밍 다이어그램
+
+시간에 따른 입력신호, 출력신호의 변화를 보여주는 그래프
+![timmingDiagram](timmingDiagram.jpeg)
+
+### 3-2 전파 지연
+
+- 입력신호 변화에 따른 출력신호의 변화가 발생하는 시간 차이
+- 게이트 지연(gate delay) 또는 전파 지연(propagation delay)이라고 함
+- 0 -> 1, 1 -> 0으로 갈때 그래프가 수직 상승, 하강하는게 아니라 시간에 따라 하강, 상승하는 곡선을 그림
+- 그 차이가 아주 작아서 보통은 수직으로 그림
+
+### 4. 논리 회로 표현
+
+논리 회로 logic circuit
+- 논리회로 구성요소들과 그들간의 상호 연결 관계를 표현한 회로
+  - 논리 회로의 구성 소요로는 조합 회로, 순차 회로가 있음
+
+논리 회로의 표현 방법
+1. boolean qeuation : 부울 방정식으로 표현
+2. schematic : 그래픽 심볼로 표현
+3. HDL description : HDL(Hardware Description Language)를 사용하여 논리회로 표현
+
+
+### 4-1 논리회로의 shcematic 표현
+ - symbol(and,or,xor gate logic gate)과 net(심볼을 연결하는 bus)로 표현
+
+### 4-2 논리회로의 HDL 표현
+- 텍스트를 사용하여 표현
+  - 대표적 HDL로 VHDL, verilog, HDL
+> 내용이 많지만 나한테 중요하지 않은? 관계로 패스!
+
+
+### 5. 논리회로 간략화
+
+- 논리회로 간략화
+  - 로직 게이트 줄이기
+  - 전파 지연 감소
+- 간략화 방법
+  - boolean algebra를 사용한 간략화
+  - karnaugh map(카르노 맵)을 사용한 간략화
+    - 입력 변수 4개 이하 적용 용이
+  - quine-macluskey 알고리즘
+    - 입출력 변수 개수에 제한
+  - ECAD toll을 사용한 간략화
+    - ESPRESSO 알고리즘
+### 5-1 카르노 맵(karnaugh map)
+
+- 진리표의 2차원적 표현 방법
+- 논리 표현식을 맵 형태로 표현한 후
+- 상호 연관관계를 패턴으로 분석하여 논리를 단순화해 나가는 방법
+- 이산 수학강의에 잘 설명되어 있음!
+
+
+
