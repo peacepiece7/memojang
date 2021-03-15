@@ -589,11 +589,128 @@ ADC (Analog-to-Digital Converter)
 DAC (Digital to Analog Converter)
 - 디지털 신호를 연속적인 아날로그 신호로 변환하는 회로```
 ```
-input a analog signal => ADC => DP(Digital Processor) => DAC => Output a Analog signal
-input a analog signal => ADC => DP(Digital Processor) => Output a Digital signal
+analog signal => ADC => DP(Digital Processor) => DAC => Analog Signal
+analog signal => ADC => DP(Digital Processor) => Digital Data
 ```
 
-### 3-1 아날로그 신호의 디지털 변환 과정
+### 3-1 아날로그 신호의 디지털 변환 과장
+
+Sample & Holding
+- 연속적으로 변하는 아날로그 신호를 sampling하여 일정 시간동안 유지(Holding) 시키는 방법
+
+양자화 및 부호화 (Quantization & Coding)
+- 샘플링한 신로를 디지털 데이터로 표현
+
+`Analog Signal ->  Sample & Holding -> Quantization & Coding -> Digital Data`
+
+### 3-2 ADC 동작 예시
+
+![ADCworkFlow](ADCworkFlow.jpeg)
+
+### 3.3 ADC 방법
+
+> 그래프가 너무 많이 나오고 굳이 외울 필요는 없는 거 같아서 이미지는 생략 ! 
+#### 1. Direct-conversion ADC
+- 병렬로 ADC를 수행함
+- 가장 빠른 변환 방법
+- 가장 많은 하드웨어 사용
+- 높은 전력 소모
+- Flash ADC or Parallel ADC로 알려짐
+
+#### 2. Successive-approximation ADC
+- DAC 와 비교기를 사용하여 MSB 부터 LSB 까지 추정하면서 변환
+- 연속적 관계 ADC
+- EOC : end of conversion
+- SAR : SA Registor
+- S/H : Sample & Holder
+- 비교적 간단한 회로
+- 긴 변환 시간
+
+#### 3. Ramp-compare ADC
+- Free running 이진 카운터와 DAC , 비교기로 구성
+- CTR : Binary Counter
+- DAC : Digital to Analog Converter
+- SRG : Shift Register
+- Stairstep Ramp 또는 Counter ADC 로 알려짐
+
+### 3-4 ADC 변환 에러
+
+- 양자화 에러(Quantization Error)
+  - 연속적인 아날로그 신호를 비연속적인 디지털 코드로 양자화 함으로 생기는 에러
+- 절대 에러 (Absolute Accuracy)
+  - 실제 값과 변환 값의 최대 차이의 값
+  - Offset Error. Gain Error, Integral/Differential Non-lineraity(적분/미분 비선형)error 로 표시 
+
+### 3-4-1 offset error
+
+- 첫 번째 변환(0x00 에서 0x01) 시 , 실제 값과 변환 값 사이의 오차
+- 실제 값과 변환 값 사이의 오차가 일정
 
 
+### 3-4-2 Gain error
+
+- 마지막 변환 (0xFE 에서 0xFF) 시 , 실제 값과 변환 값 사이의 오차
+- 처음엔 오차가 거의 없다가 마지막 으로 갈수록 변환 값이 커짐
+
+### 3-4-3 INL error
+- intergral Non-linearity
+- 변환 과정에서 발생한 실제 값과 변환 값의 최대 차이 값
+- 지그재그로 변환 값이 바뀜
+
+### 3-4-4 DNL error
+- differential Non-linearity 
+- 실제 코드 변환폭과 변환 시 발생한 변환폭의 최대 차이 값
+  - 변환폭 : 다음 변환까지의 입력 신호 변동폭
+- 계단 모양으로 변환 값을 받음, 다음 신호가 올 떄 까지 변환된 ADC 그래프가 앞으로 기어감
+
+### 3-5 ADC 선택 기준
+- 변환 속도 : 100us이상->고가
+- 해상도 : 8,10,12bit가 이상적
+- 출력레벨: TTL, CMOS
+- 안정도: 온도변화 안정성
+- 아날로그 입력 극성(polarity) : Unipolar, Bipolar
+
+## 2. 진법 표현
+
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+> 진법 변환은 시험 시간에 한 번만 연습해보자 매번 적기 귀찮음
+
+### 1. 바이너리
+
+- Binary : (0 or 1 ) 2개의 상태로 표현되는 숫자  
+- Binary Digit : 바이너리로 표현되는 숫자  
+- 전자회로의 전압 값(high,low)로 구분
+
+## 2. 2진법
+
+- 두 개의 숫자 (0 , 1)로 표현되는 수 체계 
 ```
+10진수(decimal) 표현
+𝟕𝟐𝟒.𝟓 = 𝟕×𝟏𝟎^𝟐+𝟐×𝟏𝟎^𝟏+𝟒×𝟏𝟎^𝟎+𝟓×𝟏𝟎^−𝟏
+2진수 (bynary) 표현
+(𝟏𝟏𝟎𝟏𝟎𝟏.𝟏𝟏)𝟐bi = 𝟑𝟐+𝟏𝟔+𝟒+𝟏+𝟎.𝟓+𝟎.𝟐𝟓 = (𝟓𝟑.𝟕𝟓)𝟏𝟎dec
+```
+
+### 2-1 2진 소수점
+- bynary point(2진 소수점)
+- MBS ( Most Significant Bit )
+  - 2진 표현 값중 가장 최상위 자리 수
+- LSB ( Least Significant Bit )
+  - 2진 숫자로 표현된 값의 최하위 자리의 수
+
+### 2-2 2진 표시 단위
+- 1k = 1024, 10진과 다르게 표기함
+
+### 2-3 2진법 변환
+### 2-4 2진법 연산
+### 3. 8진/16진법
+
+- octal (base 8), Hexadecimal(base 16)
+- 프로그램 에서의 진법 표시
+  - bynary : b, b00001010
+  - decimal : 5594312
+  - octal : 0, 0045676765
+  - hexadecimal : 0x, 0x90BBFDA9
+
+### 3-1 진법 변환
