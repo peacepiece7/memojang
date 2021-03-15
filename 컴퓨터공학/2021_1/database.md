@@ -700,6 +700,17 @@ schema(속성을 대표하는 이름)가 첫번쨰 row에 올 수도, 첫번쨰 
 - COND(t) : t를 포함하는 condition
 ```
 
-COND() : WFF (Well Form Formula)
+- COND() : WFF (Well Form Formula)
+  - COND() 이 부분에 올 수 있는 조건을 WFF (Well Form Formula)=논리식 이라 함
+ 
+- WFF
+  - 원자(atom)들로 구성된 식
+- atom(원자)
+  - R(t)형태 : 튜플 변수와 대응되는 범위 릴레이션
+  - 예를 들어 table1에 성적 릴레이션을 가르킬 때, table1.성적 op table2.성적 (op는 비교 연산자,=,<,>,>=,<=,!=)
+  - table.성적 op c (c는 상수, op는 비교연산자, table1.성적이 table1안의 성적 릴레이션의 원자들을 가르킴)
+
+- 자유 변수(Free Variable)와 한정 변수(Bounded Variable)
+
 
 
