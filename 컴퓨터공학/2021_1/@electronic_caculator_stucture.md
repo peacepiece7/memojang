@@ -539,8 +539,12 @@ Clock Cycle
 Clock Cycle Time(CCT)
 - 클럭 사이클 사이의 시간 간격
 
+<<<<<<< HEAD
 ![clockCycleTime](ClockCycleTime.jpeg)
 image
+=======
+![clockcycleTime](ClockCycleTime.jpeg)
+>>>>>>> 1515f9d8e69993a333a141a97075c1fc1ec5a356
 
 ### 2-1-4 cpu time
 cpu time
