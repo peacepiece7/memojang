@@ -302,7 +302,7 @@ Cancel Changes
 - 1970 컴퓨터 제조사들이 DBMS 제작 판매하기 시작
 - 네트워크 모델, 계층 모델에 기초를 둠
 
-#### 04. 2세대 DMNS
+#### 04. 2세대 DBMS
 
 - 1980년대 관계형 모델(Relational data model)에 기반한 DBMS들이 개발됨
 ```
@@ -329,7 +329,7 @@ PC기반 DBMS
 
 #### 06. 현제 DBMS
 
-- oriented rerational database managment system(객체 관계형 데이터베이스 관리 시스템)
+- oriented relational database managment system(객체 관계형 데이터베이스 관리 시스템)
 
 `2세대 DBMS(관계형 데이터베이스) + 3세대 DMBS(객체 지향 데이터베이스) = 객체 관계형 데이터베이스 관리 시스템 (ORDBMS)`
 
