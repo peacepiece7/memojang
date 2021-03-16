@@ -1884,6 +1884,14 @@ Code, Data, Stack 영역과는 다르게 Heap은 런타임에 결정된다.
 🍎 프로세스  A, B, C 스케줄링
 
 ![p170프로세스 스케줄링](processScheduling1.jpeg)
+
+우선순위 부여
+
+@ 큰 번호는 낮은 우선순위를 나타냄  
+@ 디스크 입출력이나 다른 중요한 디스크들을 수행하는 프로세스에는  
+@ 음수의 우선순위 부여하여 시그널로 중단할 수 없도록 함
+@ 프로세스가 프로세서 시간을 많이 사용할수록 번호는 크고 우선순위는 낮아짐
+
 ![p171프로세스 스케줄링](processScheduling2.jpeg)
 
 
@@ -1909,7 +1917,7 @@ Code, Data, Stack 영역과는 다르게 Heap은 런타임에 결정된다.
 
 🍎 유닉스 주요 디렉터리
 
-!(유닉스 주요 디렉터리)[unixMainDirectory.jpeg]
+![유닉스 주요 디렉터리](unixMainDirectory.jpeg)
 
 
           
