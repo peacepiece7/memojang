@@ -4,18 +4,18 @@
 
 - 전자계산기의 발전과정, 기능, 응용분야에 대해 설명하기
 - 컴퓨터의 기능 구성요소에 대해 설명하기
-- 컴퓨터의 데이터 처리 방식과 사용목적 등에 따라 분류하기
+- 컴퓨터의 데이터 처리 방식과 사용목적 등에 따라 분류하기 (세대별, 컴퓨터의 데이터 처리 방식, 마이크로 프로세서에 따른 분류)
 
 ##  1. 전자계산기 소개
 
 ### 1. 전자 계산기의 정의와 진화과정
 
-- 기계식 계산기에서 -> EDSP(Electronic Data Processing Sysyem) -> AI 까지 진화
+- 기계식 계산기에서 -> EDSP(Electronic Data Processing System) -> AI 까지 진화
 - 현대 전자 계산기는 컴퓨터로 총칭
 
 ```
 Abacus -> Difference Engine -> Electronic Calculator -> Computer ->
--> Mobile Device -> Internet of Things (IoT) -> Artificail intelligence(AI)
+-> Mobile Device -> Internet of Things (IoT) -> Artificail Intelligence(AI)
 ```
 
 ### 2. 컴퓨터의 기능
@@ -29,8 +29,8 @@ Abacus -> Difference Engine -> Electronic Calculator -> Computer ->
 - 범용 컴퓨터 (General-Purpose Computer)
   - PC, Workstation, Main-fram
   - Getnerality, Flexibility 강조
-- 특정 용도 컴푸터 (Applicaion-Specific Computer)
-  - Embedded Sysyem(특저 용도에 맞게 SW/HW가 최적화 되어 있음)
+- 특정 용도 컴퓨터 (Applicaion-Specific Computer)
+  - Embedded Sysyem(특정 용도에 맞게 SW/HW가 최적화 되어 있음)
   - 실생활에서 보면 가정용 전자제품, 공장 자동화, 항공, 우주 , 군자 장비 등이 포함
 
 ## 2. 컴퓨터의 구성
@@ -157,8 +157,8 @@ CPU가 하나의 IC로 구현 되어있다면? => Micro-processor
 # 컴퓨터 구조의 개요 (1주차 Part 2)
 
 ```
-컴퓨터 구조와 조직에 대해 설명할 수 있다  
-컴퓨터 하드웨어 구조에 대해 설명할 수 있다    
+컴퓨터 구조와 조직에 대해 설명할 수 있다(별로 외울게없음..)
+컴퓨터 하드웨어 구조에 대해 설명할 수 있다
 폰 노이만 구조에 대해 설명할 수 있다 .  
 프로그램이 실행되는 순서와 명령어 사이클에 대해 설명할 수 있다  
 ```
@@ -539,12 +539,10 @@ Clock Cycle
 Clock Cycle Time(CCT)
 - 클럭 사이클 사이의 시간 간격
 
-<<<<<<< HEAD
-![clockCycleTime](ClockCycleTime.jpeg)
-image
-=======
-![clockcycleTime](ClockCycleTime.jpeg)
->>>>>>> 1515f9d8e69993a333a141a97075c1fc1ec5a356
+![clockCycleTim](ClockCycleTime.jpeg)
+
+
+![clockcycleTim](ClockCycleTime)
 
 ### 2-1-4 cpu time
 cpu time
