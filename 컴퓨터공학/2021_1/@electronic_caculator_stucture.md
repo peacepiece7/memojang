@@ -1120,6 +1120,25 @@ priority Encoder
   - 전압 레벨을 변경할 떄 사용함
   - ex) 3V -> 5V, 5V -> 3V로
 
+### 5-1 3-state buffer
+### 5-2 schmitt-triger buffer
+
+## 2. adder (가산기)
+
+### 1-1 Half-Adder (반 가산기)
+### 1-2 Full-Adder (전 가산기)
+### 2. n-bit가산기
+### 2-1 Riple Carry Adder (RCA)
+### 2-2 Carry Look-agead Adder(CLA)
+### 2-3 Carry Select Adder(CSL)
+### 2-4 Carry Save Adder(CSA)
+### 2-5 Carry Skip Adder(CSK)
+### 2-6 오버 플로우 검사
+### 3. 덧셈-뺄셈기
+
+## 3. 조합회로 설계
+
+
 
 
 
