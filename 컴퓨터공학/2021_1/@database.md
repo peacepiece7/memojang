@@ -1376,10 +1376,10 @@ database보단 객체와 같은 방식으로 만들어짐, 다만 속성을 개�
 까먹었을 까봐 데이터 베이스를 다시 정리하면
 ```
 (table a) table1
-(속성)a      | (속성)b      | (속성)c      | (속성)d      |     (a, b, c, d) = relation schemna
+(속성)a      | (속성)b      | (속성)c      | (속성)d      |     (a, b, c, d) = relation schemna ( 4 degree{치수} )
 (tuple a)a1 | (tuple a)b1 | (tuple a)c1 | (tuple a)d1 |    (tuple a, tuple b, tuple c) = relation instance
-(tuple b)a2 | (tuple b)b2 | (tuple b)c2 | (tuple b)d2 |
-(tuple c)a3 | (tuple c)b3 | (tuple c)c3 | (tuple c)d3 |
+(tuple b)a2 | (tuple b)b2 | (tuple b)c2 | (tuple b)d2 |    tuple a = cadinality 3, tuple b = cadinality 3
+(tuple c)a3 | (tuple c)b3 | (tuple c)c3 | (tuple c)d3 |    
 
 (a1,a2,a3) = Domain
 (b1,b2,b3) = Domain
