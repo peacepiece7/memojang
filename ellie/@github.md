@@ -102,7 +102,7 @@ config, HEAD, hooks, refs 등등 다 있음
 `ls -al`
 깃 파일이 사라지고, 더 이상 깃 파일이 아님
 
-> 요약
+> 요약  
 `git init`  
 .git 시작  
 `re -rf .git`  
