@@ -45,27 +45,27 @@ vcs를 열고 싶을 떄 text editor로 연결하고 싶을 때 사용
 `git config --global -e`
 vsc가 열리고 terminal이 활성화 상태임
 
-`git --global core.editro "code --wate"`
-'git config --global -e`
-vsc가 열리고, vsc가 닫히기 전 까지 terminal이 비활성화 상태임
-
+`git --global core.editro "code --wate"`  
+'git config --global -e`  
+vsc가 열리고, vsc가 닫히기 전 까지 terminal이 비활성화 상태임  
+  
 ## git name, email 설정하기
 
-`git --global user.name "TaeTae"
-`git --global user.email "peacepiece7@naver.com"
+`git --global user.name "TaeTae"  
+`git --global user.email "peacepiece7@naver.com"  
 
-`config user.name`
+`config user.name`  
 => TaeTae
 
-`config user.email`
+`config user.email`  
 => peacepiece7@naver.com
 
 ## git new line solving
 
-> os 마다 개행 문자가 다르게 들어감
-> window의 경우 text blahblah**/r/n**    (/r = carriage-return, /n = line-feed )
-> mac의 경우 text blahblah**/n**   (/n = line-feed)
-> 이로인해 저장시 띄어쓰기가 달라지는 문제가 발생함
+> os 마다 개행 문자가 다르게 들어감  
+> window의 경우 text blahblah**/r/n**    (/r = carriage-return, /n = line-feed )  
+> mac의 경우 text blahblah**/n**   (/n = line-feed)  
+> 이로인해 저장시 띄어쓰기가 달라지는 문제가 발생함  
 
 `git config --global core.autocrlf input`
 
@@ -114,7 +114,7 @@ drag로 파일 끌어오기 or
  
 create new or 
 
-create loacal repository
+create loacal repository  
 (user1/desktop/projects/git)
 
 ## git의 상태 보기, 명령어 줄여쓰기
@@ -123,35 +123,35 @@ create loacal repository
 `git status`  
 => git 상태가 표시됨
 
-> 명령어 줄여 쓰기
-`git config --hlobal alias.st status`
-`git st`
-=> git 상태가 표시 됨
+> 명령어 줄여 쓰기  
+`git config --hlobal alias.st status`  
+`git st`  
+=> git 상태가 표시 됨  
 
 
 # basic 
 
 ## git workflow
 
-**working directory = > staging area => .git directory 순서로 저장함**
+**working directory = > staging area => .git directory 순서로 저장함**  
 
-1. working directory
- - untracked
-   - git이 tracking하지 않음 ( 파일이 변경되지 않았거나, 새로 생성한 파일 ) 
- - tracked
-   - git이 tracking하고 있음 ( 기존에 있는 파일임 )
-   - (tracked)unmodified
-     - 수정되지 않음
-   - (tracked)modified
-     - 수정된 파일로 straging area로 넘어갈 수 있음
-
-2. staging area
-- commit명령어로 git directory로 준비된 파일을 보냄
+1. working directory  
+ - untracked  
+   - git이 tracking하지 않음 ( 파일이 변경되지 않았거나, 새로 생성한 파일 )   
+ - tracked  
+   - git이 tracking하고 있음 ( 기존에 있는 파일임 )  
+   - (tracked)unmodified  
+     - 수정되지 않음  
+   - (tracked)modified   
+     - 수정된 파일로 straging area로 넘어갈 수 있음  
+ 
+2. staging area  
+- commit명령어로 git directory로 준비된 파일을 보냄  
 
 3. .git directory
- - 버전의 히스토리를 가지고 있음, 파일이름 = 해시 코드로 저장(+ 작성자, 작성 시간 등 있음)
- - checkout명령어로 언제든지 working directory로 보낼 수 있음
- - push, pull명렁어로 server에 .git directory를 주고 받을 수 있음
+ - 버전의 히스토리를 가지고 있음, 파일이름 = 해시 코드로 저장(+ 작성자, 작성 시간 등 있음)  
+ - checkout명령어로 언제든지 working directory로 보낼 수 있음  
+ - push, pull명렁어로 server에 .git directory를 주고 받을 수 있음  
 
 
 
