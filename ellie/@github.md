@@ -154,6 +154,87 @@ create loacal repository
  - push, pull명렁어로 server에 .git directory를 주고 받을 수 있음  
 
 
+## 
+
+`cd projects/git/git`  
+작업 디렉터리로 들어가서 아래와 같이 작성  
+
+
+`ehco hello world! > a.txt`
+a.txt에 hello world를 작성함
+
+`open.`
+git folder를 열어봄
+
+`ehco hello world! > b.txt`
+`ehco hello world! > c.txt`
+
+a, b, c.txt 텍스트 파일을 만듬
+
+`git status`
+=> 
+on branch master  
+
+no commit files   
+
+untracked files :   
+a.txt  
+b.txt  
+c.txt  
+> untracked files list를 보여줌  
+
+`git add <a.txt b.txt c.txt or *.txt>`  
+
+a,b,c.txt가 staging area로 이동됨   
+즉 commit 상태가 됨  
+
+`echo taetae > a.txt`  
+`git status`  
+=>  
+on branch master  
+
+Changes to be committed:  
+  new file : a.txt  
+  new file : b.txt  
+  new file : c.txt  
+
+changes not staged for commit:  
+  modified : a.txt  
+  
+위 코드를 보면 a.txt를 "taetae"로 변경했기 때문에  
+tracked상태의 a.txt가 만들어짐, 다른말로 commit stage에 있지 않은 파일이 존제함  
+
+`git --rm cashed *`  
+전체 파일을 untracked상태로 만듬  
+(파일 내용이 add 전으로 돌아가는 건지, 위치만 untracked로 이동하는 건지 모르겠음 집가서 확인해보자!)  
+
+> sourcetree를 사용해서 시각적으로 확인해보자  
+
+요약  
+
+`git add *.txt`   
+staging으로 보냄(commit)     
+`git --rm cashed *`   
+staging파일을 untracked로 보냄  
+`git status`  
+tracked, untracked, staging 상태 확인  
+
+### .ignore  
+
+`echo log > log.log`  
+`echo styles > styles.css`  
+
+`echo *.log > .gitignore`  
+
+`git add *`  
+`git status`  
+=>  
+changed to be commited :   
+    new styles.css  
+
+> untracked file에 log.log가 없어짐!  
+
+
 
 
 
