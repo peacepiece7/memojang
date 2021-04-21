@@ -234,6 +234,39 @@ changed to be commited :
 
 > untracked file에 log.log가 없어짐!  
 
+for instance    
+`echo build/ > .gitignore`  
+`echo build/*.log > .gitignore`  
+
+`git status -s`
+간략하게 status보기
+
+q -> exit  
+cmd+k -> clear  
+
+## git diff 사용하기
+
+`git diff`
+=>
+```
+diff --git a/c.txt b/c.txt
+index 11saskf..22kasd3s  11200sad
+--- a/c.txt
++++ b/c.txt
+@@ -1 +1,2 @@
+ hello world!
++add
+(END)
+```
+
+
+
+`git config global -e`
+
+
+
+
+## git commit
 
 
 
