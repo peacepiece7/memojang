@@ -40,10 +40,10 @@ window - > cmd R
 vcs를 열고 싶을 떄 text editor로 연결하고 싶을 때 사용  
 (커맨드 팔렛에서 code 검색해서 설정 활성화 해야 함)
 
-> vsc로 git 설정 파일 열기
-`git --global core.editor "code"`  
-`git config --global -e`
-vsc가 열리고 terminal이 활성화 상태임
+> vsc로 git 설정 파일 열기  
+`git --global core.editor "code"`   
+`git config --global -e`  
+vsc가 열리고 terminal이 활성화 상태임  
 
 `git --global core.editro "code --wate"`  
 'git config --global -e`  
@@ -119,7 +119,7 @@ create loacal repository
 
 ## git의 상태 보기, 명령어 줄여쓰기
 
-> git 상태보기
+> git 상태보기  
 `git status`  
 => git 상태가 표시됨
 
