@@ -277,15 +277,28 @@ index 11saskf..22kasd3s  11200sad
 `git diff --staged`   
 stage에 있는 모든 변경사항을 보여줌  
 `git diff`  
-를 치면 변경사항이 + 어쩌고 저쩌고 라고 나오지만  
+를 치면 워킹 디렉토리에 있는 내용 + 변경사항이 표시되고
+staged는 변경사항만 보여줌
 
+`git diff --cashed`  
+도 --staged와 같음!
 
+## VScode에서 변경사항 확인하가
 
+terminal
+`git config --global -e`
+를 친다음
+vsc에 아래와 같이 작성
+`
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+ `
 
-## git commit
-
-
-
+terminal
+`git difftool`
+yes 적으면 vsc로 변경사항을 열어서 확일할 수 있다.
 
 
 
