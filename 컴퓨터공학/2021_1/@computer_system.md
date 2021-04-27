@@ -2408,6 +2408,9 @@ C, R/W, U,D,S,C/P,
 
 ### 01 파일 내용 보기
 
+> 하드 링크 : 기존의 파일에 새로운 파일명을 붙이는 것으로 unode가 같음
+> 심벌릭 링크 : 원본 파일을 가르키는 새로은 파일
+> 복사파일 :파일의 내용을 복사하여 독립적인 파일이 됨
 - 파일 내용 연속 출력하기 : cat
   - form : cat [option] [file]
   - option : -n
@@ -2467,11 +2470,29 @@ C, R/W, U,D,S,C/P,
   - form : ln [option] [original file] [link file]
   - option
     - -s : 심벌릭 링크 파일을 생성함
+ ```
+ ln test lntest 
+ 실행
+ ls -i *est
+ 실행하면
+ 
+ 40948 test.txt 40948 lntest.txt
+ 
+ 이렇게 아이노드 값이 같은 파일이 만들어지고
+ 
+ cp -i lntest test 를 실행하면 아이노드 값이 다르게 나옴
+ 즉 다른 파일이 만들어 짐
+ ```
+ > 심벌릭 링크 만들기 : ln -s
 
+- 아이노드 값이 다른 별개의 파일임
+- ls -l로 확인해보면 lntest -> test  이렇게 심벌릭 링크는 arrow로 표기됨
+
+ 
 ### 02 touch 명령
 
 - 빈 파일 만들기, 수정 시간 변경하기 : touch
-  - 인자를 지정하지 않으면 빈 파일을 생성함 mkdir랑 같은듯...?
+  - 인자를 지정하지 않으면 빈 파일을 생성하는 건 mkdir랑 같음(옵션이 다름)
   - form : touch [-acm] [-r ref_file : -t time ] [file]
   - option
     - -a : 접근 시간만 변경함
@@ -2486,13 +2507,13 @@ C, R/W, U,D,S,C/P,
   ```
 
   - -t option 자세히 보기
-  - CC 연도의 첫 두 자리
-  - YY 연도의 마지막 두 자리
-  - MM 달(01~12)
-  - DD 날짜 (1~31)
-  - hh 시간 (0~23)
-  - mm 분 (0~59)
-  - ss 초 (0~59)
+    - CC 연도의 첫 두 자리
+    - YY 연도의 마지막 두 자리
+    - MM 달(01~12)
+    - DD 날짜 (1~31)
+    - hh 시간 (0~23)
+    - mm 분 (0~59)
+    - ss 초 (0~59)
 
 - 파일 내용 검색하기 : grep
   - 지정 패던이 포함된 행을 찾음
@@ -2501,6 +2522,7 @@ C, R/W, U,D,S,C/P,
     - -i : 대문자, 소문자를 모두 검색함
     - -ㅣ 지정한 패턴이 포함된 파일명을 출력함
     - -n 행 번호를 출력함
+    - ex) grep -l hello.c
 - 파일 내용 검색하기 : find
   - 지정 위치, 조건 파일 찾기 기능
   - form : find [경로 검색 초건] [동작]
@@ -2510,12 +2532,13 @@ C, R/W, U,D,S,C/P,
     - -user loginID : 지정한 사용자가 소유한 모든 파일을 검색
     - -perm 접근권한 : 지정한 사용 권한과 일치하는 파일을 검색 permit(허가)를 말하는듯
     - -ls 검색 결과를 긴 목록 형식으로 출력함
+    - ex) find ~ -name test.c // /home/user1/test.c
 
 동작 옵션
 ```
-exec􀀁명령 {}＼; : 검색된 파일에 명령을 실행함
+exec 명령 {}＼; : 검색된 파일에 명령을 실행함, 무조건 실행
 
-ok􀀁명령 {}＼; : 사용자의 확인을 받아서 명령을 실행함
+ok 명령 {}＼; : 사용자의 확인을 받아서 명령을 실행함, 확인 후 실행
 
 print : 검색된 파일의 절대 경로명을 화면에 출력함(기본 동작)
 
@@ -2524,13 +2547,15 @@ ls : 검색 결과를 긴 목록 형식으로 출력함
 ex)
 ```
 find ~-name hello.c
-find /tmp -user user10 -exec rm []＼;
+  ~ 안에 hello.c가 있으면 출력
+find /tmp -user user10 -exec rm {} ＼;
+  /tmp안에 user10 파일은 전부 지움
 ```
 
 - 명령의 위치 찾기 : whereis
   - 특정 명령이 있는 위치를 찾아서 절대 경로 출력
   - 고정된 특정 경로에서 검색
-
+  - ex) whereis -name user1, whereis -type text1.txt, whereis -user user1
 - 명령의 위치 찾기 : which
   - 에일리어스, path환경 변수로 지정된 경로에서 파일을 찾고 찾으면 절대경로 출력 종료
 
