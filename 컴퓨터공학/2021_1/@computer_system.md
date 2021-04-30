@@ -2682,14 +2682,94 @@ rm .exrc
 셸의 기본 사용법을 설명할 수 있다. 
 입출력 방향 바꾸기를 실행할 수 있다.
 ```
-## 셀의 기능과 종류
-### 01 셀의 기능
+셸 활용하기 실습
+```
+grep iser1 /etc/passwd
+=> ... home/user1:/btn/bash
+=> 셸 종류 알아볼 수 있음
 
-## 셀의 기본 사용법
+cat /etc/shells
+=> 변경 가능한 셸을 알 수 있음
+/bin/sh
+/bin/bash
+/bin/dash
+/bin/rbash
 
-## 입출력 바꾸기 (redirection)
 
+file /bin/pwd
+=> 셸 내장 명령 확인하기
 
+cat /bin/pwd
+=> cat은 ascii라서 파일을 읽지 못하고 깨짐
+
+echo comp
+=> comp
+echo "compu program"
+=> compu program
+echo -n compu
+=> compuuser1@user1-virtual-machme...
+=> 줄바꿈 없이 출력됨
+
+printf "compu program /n"
+=> compu program (carragie return이 들어감)
+printf "%d - %d = %d /n" 20 10 10 
+=> 20 - 10 = 10
+```
+
+## 입출력 방향 바꾸기 
+
+### 개요
+#### 파일
+
+|파일 디스크립터|파일 디스크립터 대신 사용하는 이름|정의|
+|:-:|:-:|:-:|
+|0|stdin|명령의 표준 입력|
+|1|stdout|명령의 표준 출력|
+|2|stderr|명령의 표준 오류|
+
+#### 방향 바꾸기
+
+- 출력 재지정
+- 입력 재지정
+- >, >> (stdout을 파일로 저장, 추가)
+- < (파일을 stdin으로 전달)
+- echo "hello world!" >> text.txt
+- | 파이프 라고 읽고 process연결 (stdout 을 stdin으로 전달)
+
+#### 출력 리다이렉션
+
+- > : 기존 내용 삭제 결과 새로 저장
+- >> : 기존 파일 내용 뒤에 결과 추가
+- 1 : 파일 디스크럽터 1번 (표준 출력, 화면)
+
+> overwrite 방지, 해제 방법
+
+```
+// 방지
+[user1@localhost ch4]$ set -o noclobber
+[user1@localhost ch4]$ ls > outxx
+bash: outxx: cannot overwrite existing file
+[user1@localhost ch4]$
+
+// 해제
+[user1@localhost ch4]$ set +o noclobber
+[user1@localhost ch4]$ ls > outxx
+[user1@localhost ch4]$
+```
+- 오류 리다이렉션은 2(파일 디스크립터 번호) 생략 불가
+- 오류 메시지를 파일에 저장함
+
+```
+[user1@localhost ch4]$ ls . /abc > ls.out 2> ls.err
+[user1@localhost ch4]$
+```
+실습
+```
+echo "our system is `uname`"
+=> our system is Linux
+
+ls > 
+```
 # 셸 스크립트 (6주차 2차시)
 
 학습목표
