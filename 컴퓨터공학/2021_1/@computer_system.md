@@ -2604,6 +2604,75 @@ ex) 모드형은 copy, past, save 순으로 yy, p :wq지만
 
 vi 파트는 실습 위주라 따로 안 적음.. 강의 자료 참고
 
+명령어 응용 실습
+```
+vi test.txt
+=> text.txt열기
+
+vi test.txt test2.txt
+=> 여러 파일 열기
+
+vi test1.txt
+:w
+=> 저장
+:e test2.txt
+=> 다른 파일로 이동됨
+
+:e newfile.txt
+=> 새로운 파일 생성됨
+```
+
+셸 명령 사용하기 실습 
+```
+vi test1.txt
+:! ls + [enter]
+=> ls명령어 실행되고 enter 또 누르면 test.txt 편집으로 돌아감
+
+:sh
+=> 터미널로 돌아감
+ls ,date 등등 mkdir등등 하고싶은거 다함
+다하고 다시 test.txt 편집으로 돌아가고 싶으면
+:exit
+
+편집 상태에서
+J => 줄 합치기
+dd => 글자 지우기
+~ => 대문자, 소문자 바꾸기
+yy => 복사
+p => 불여넣기
+control + l => 깨진 화면 복구
+control + g => 문장의 라인 수 나타내기
+. => 이전명령 반복
+```
+
+vi 환경설정 실습
+```
+:set nu
+=> 행 번호 표기하기
+:set nonu
+=> 행 번호 감추기
+:set list
+=> 숨겨진 특수문자 표시
+:set nolist
+=> 숨겨진 특수문자 감추기
+
+
+set 환경설정은 일회용임 global 환경 설정을 하려면 아래와 같이 해야 함
+
+vi .exrc
+set nu
+set list
+
+shift + zz 나 :w로 저장함
+
+vi text.txt
+=> 행번호, 특수문자가 나옴
+
+rm .exrc
+=> 다시 지워짐
+
+```
+
 # vi 명령어 응용 (5주차 2차시)
 
 # 셀 활용하기 (6주차 1차시)
