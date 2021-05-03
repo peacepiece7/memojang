@@ -3162,7 +3162,7 @@ ls -l ff.exe
 
 
 
-# 프로세스 관리하기 (7주차 2차시)
+# 프로세스 관리하기 (8주차 2차시)
 
 학습목표
 ```
@@ -3208,3 +3208,129 @@ for instance
     - x : 시스템에서 실행중인 모든 프로세스의 정보
   - GNU option
     - --pid PID 목록
+강의 자료 참고하고 실습
+```
+// 현제 단말기의 프로세스 목록 출력
+ps
+=> process list 출력됨
+
+ps -e 
+=> 모든 process 출력됨 ?는 데몬 프로세스
+
+ps -f
+=> ps보다 자세하게 출력됨
+
+ps a
+=> 현제 단말기의 상태
+
+ps au 
+=> 터미널에서 수행한 프로세스 상세정보
+
+ps -ef | grep bash
+=> 특정 프로세스 정보 검색
+
+// ps + grep = pgrep
+pgrep -x bash
+=> 프로세스 아이디 검색 
+
+ps -fp $(pgrep -x bash)
+=> bash에 대한 좀 더 자세한 정보
+
+kill -l
+=> 리눅스에서 제공하는 시그널 목록 정보
+
+// kill 
+// 새로운 터미널에서 man ps 실행
+man ps
+
+// 기존 터미널에서 아래와 같이 실행
+ps -fp $(pgrep -x man)
+=> 
+UID     PID       C STIME ...
+user1   2258     0  18.04 ... 
+
+// 실행중인 process가 없어서 error가 뜸
+kill 2258
+ps -fp $(pgrep -x man)
+=> error : list of process IDs must follow -p
+
+
+// shell은 kill로 죽일 수 없음
+// 새로운 터미널에서 sh 실행
+sh
+
+// 기존터미널에서 아래와 같이 실행
+ps -fp ${pgrep -x sh)
+=>
+UID     PID       C STIME ...
+user1   2343     0  18.04 ... 
+
+kill 2343
+ps -fp ${pgrep -x sh)
+=>
+UID     PID       C STIME ...
+user1   2343     0  18.04 ... 
+
+// 강제적으로 지울려면 아래와 같이 실행하면 죽일 수 있음
+// 실행중인 프로세스가 없어서 에러가 뜸
+kill -9 2343
+ps -fp $(pgrep -x sh)
+=> error : list of proess IDs must follw -p
+```
+
+## 포그라운드- 백그라운드 프로세스 및 작업 제어
+
+```
+// 포그라운드 명령 
+// 작업이 끝날 때까지 다른 명령을 할 수 없음
+sleep 80
+=>
+control + c 로 빠져 나가기
+
+// 백그라운드 명령
+//  다른 명령어 바로 입력 가능
+sleep 80 &
+=> [1] 2231
+
+// jobs
+// 1번 프로세스가 실행 중이라고 뜸
+// sleep 80& 명령어 실행하면 번호 자동 부여
+jobs %1
+=> [1]+ Running  sleep 80&
+
+// 한개 더 만들어 보기
+sleep 100&
+=> [2] 2344
+jobs
+=> 
+[1]- Running sleep 80&
+[2]+ Running sleep 100&
+
+가장 최신 실행 프로세스는 +로 표시됨
+
+// 포그라운드 일지 중단
+control + z 
+// 완전 종료
+control + c
+
+// 백그라운드로 전환
+sleep 200
+=> 
+control + z 로 일시 중지
+jobs 
+=>
+[1]- Running sleep 80&
+[2]- Running sleep 100&
+[3]+ Stopped sleep 200
+
+// 백그라운드가 되고 sleep 상태가 됨
+bg %3
+=> [3]+ sleep 200&
+
+// 작업종료할 때 %[번호]해서 삭제
+kill %3
+kill %2
+
+```
+
+
