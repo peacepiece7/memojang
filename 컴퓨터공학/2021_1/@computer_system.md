@@ -2861,7 +2861,47 @@ date; ls; pwd
 
 ```
 
+- '' : 모든 특수 문자를 일반 문자로 간주
+- "" : $, `, ₩을 제외한 모든 특수문자를 일반 문자로 간주
 
+```
+// SHELL 문자열이 화면에 출력
+echo `$SHELL`
+=> $SHELL
+
+// 셸 환경 변수인 SHELL에 저장된 값인 현재 셸의 종류가 화면에 출력
+echo "$SHELL"
+=> /bin/bash
+```
+
+- `` : "``" ``로 감싼 문자열은 명령어로 해석
+
+```
+// 문자열 사이에 명령어 넣기
+echo "Today is `date`"
+=> Today is 2017.06.26 (수) 15.23.55 KST
+
+// uname -m 의 결과를 문자열 이름으로 사용
+ls /user/bin`uname -,`
+
+```
+
+- 특수문자 ₩ : (\ = ₩) 일반 문자로 처리해줌
+
+```
+ls -l t\*
+=>  t* 이라는 이름을 가진 파일의 상세정보 출력 
+ls -l t*
+=> t로 시작하는 파일 상세정보 출력 
+
+```
+
+- 특수문자 >,<,>>  : 입출력 방향을 바꿈
+
+```
+ls -l > res
+=> ls -l명령 결과를 res파일에 저장함
+```
 # 셸 스크립트 (6주차 2차시)
 
 학습목표
@@ -2906,14 +2946,265 @@ date; ls; pwd
 - 지정한 변수를 해제
   - unset 변수
 
+```
+// set 전체 명령어 보기
+set | more 
+
+// envinorment 전체 명령어 보기
+env | more
+
+// 특정 변수 출력
+echo $SHELL
+=> btn/bash
+
+// 변수 출력하기
+SOME = test
+echo $SOME
+=> test
+
+// 변수 확인
+set | grep SOME
+=>SOME=test
+
+// 셀 변수는 환경변수로는 세팅이 안 되어 있음
+env | grep SOME
+=> 아무것도 안 나옴!
+
+// SOME을 환경 변수로 설정하기 : export
+export SOME
+env | grep SOME
+=> SOME=test
+
+or
+
+export SOME2=test2
+env | grep SOME2
+=> SOME2=test
+
+echo SOME2
+=>test2
+
+// SOME 환경 변수에서 셸 변수로 변경하기
+export -n s SOME
+env | grep SOME
+=> 아무것도 안 ㄴ ㅏ옴
+
+```
 
 
 
+### 별명 지정 : alias
+
+alias name = "command"  
+command를 name으로 사용
+
+alias name = "command1 | command2"
+
+unalias 엘리어스 기능 삭제  
+
+#### history 
+
+사용자가 이전에 입력한 명령을 다시 불러 옴
+
+!! : 바로직전 문자 실행
+!번호 : 히스토리 해당번호 실행
+!문자열 : 문자열 일치 마지막 명령 재실행함
+.bash_history 에 저장됨
+
+```
+
+// alias 지정 삭제
+alias yy = ls -l 
+yy
+=> ls -l가 실행 됨
+unalias yy
+
+// 명령어 history보기
+history
+=> 사용 명렁어 리스트가 나옴 (.bash_history 파일)
+
+!100
+=> 히스토리에서 100번쨰 컬럼에 있는 명령어 실행
+!his
+=> 히스토리에서 가장 마지막 his로 시작하는 명령어 실행
+
+
+```
+
+프롬프트 변경은 강의 자료 참고
+
+
+#### 셸 스크립트
+
+test_script 아래와 같이 작성 #!는 실행할 셸 이름, 두번째 #는 주석임
+```
+#!/bin/bash
+# My First Script Porgram
+
+printf "i like UNIX! \n"
+pwd
+```
+
+test_script(셸 스크립트)
+```
+$bash test_script
+=> i like UNIX
+/home/user1
+```
+ 
+# 파일의 접근 권한 관리 (7주차 1차시)
+
+학습 목표  
+
+```
+파일의 속성 및 접근 권한 방법을 설명할 수 있다.
+기호와 숫자를 이용한 파일 접근 권한 변경을 할 수 있다.
+기본 접근 권한 설정 방법을 설명할 수 있고, 특수 접근
+권한 설정을 할 수 있다.
+```
+-rw-r--r--. 1  root  root 158    12월 2     2016    etc/hosts
+
+file etc/temp temp
+groups user1
+
+## 파일 접근 권한 변경
+
+- 강의자로 참고
+- chmod : 접근 권한의 변경 명령
+- 숫자를 이용하는 방법
+
+rwx : 111 : 7 : read, write, excute
+rw- : 110 : 6 : r,w
+r-x : 101 : 5 : r,x
+r-- : 100 : 4 : r
+-wx : 011 : 3 : w, x
+--x : 001 : 2 : x
+--- : 000 : 0 : none
+
+- 기호를 이용하는 방법
+
+u = 소유자, g = 그룹, + = 권한 부여, o = 기타 사용자  
+```
+u+w ▶ 소유자(u)에게 쓰기(w)􀀁권한 부여(+)
+u-x ▶ 소유자(u)의 실행(x)􀀁권한 제거(-)
+g+w ▶ 그룹(g)에 쓰기(w)􀀁권한 부여(+)
+o-r ▶ 기타 사용자(o)의 읽기(r)􀀁권한 제거(-)
+g+wr ▶ 그룹(g)에 쓰기(w)와 실행(x)􀀁권한 부여(+)
++wr ▶ 모든 사용자에게 umask에 따라 권한 부여(+)
+a+rwx ▶ 모든 사용자에게 읽기(r),􀀁쓰기(w),􀀁실행(x)􀀁권한 부여(+)
+u=rwx ▶ 소유자(u)에게 읽기(r),􀀁쓰기(w),􀀁실행(x)􀀁권한 부여(=)
+go+w ▶ 그룹(g)과 기타 사용자(o)에게 쓰기(w)􀀁권한 부여(+)
+u+x,go+w
+▶ 소유자(u)에게 실행(x)􀀁권한 부여(+)􀀁
+▶ 그룹(g)과 기타 사용자(o)에게 쓰기(w)􀀁권한 부여(+)
+
+```
+
+```
+// host file의 접근 권한 확인
+ls -l /etc/hosts
+=>-rw-r--r-- 1root root 230 11월 2 02:22 /etc/hosts
+
+// 모든 사용자에게 실행 권한 부여
+touch x.txt
+chmod a+x xx.txt
+=> -rwxr-xr-x ...
+
+// 기타 사용자에게 쓰기 부여
+chmod o+w xx.txt
+=> -rwxr-xrwx ...
+
+// 그룹에 쓰기, 실행권한 부여
+chmod g+wx xx.txt
+=> -rwxrwxrwx ... 
+
+// 그룹, 기타사용자 실행 권한 지우기
+chmod go-x xx.txt
+
+// 모든 사용자에게 실행 권한 부여
+chmod 575 xx.txt
+ls -l xx.txt
+=> -r-xrwxr-x ... 
+
+// 사용자 읽기 권한 제거, 그룹 쓰기권한 제거
+chmod 155 xx.txt
+ls -l xx.txt
+=> ---xr-xr-x ...
+
+// 소유가 읽기, 실행 권한 외 모두 제거 
+chmod 500 xx.txt
+ls -l xx.txt
+=>-r-x----- ...
+```
+
+## 접근 권한 설정
+### 기본 접근 권한 설정
+
+-  umask : 접근 권한 확인하고 변경하기
+  - 옵션 : -S (마스크 값을 문자로 출력)
+
+```
+// 특수 접근 권한 설정
+// setUID - 맨 앞자리 4
+// setGID - 맨 앞자리 2
+// 스티키비트 - 맨 앞자리 1
+
+touch ff.exe
+chmod 755 ff.exe
+ls -l ff.exe
+=> -rwxr-xr-x
+
+// 사용자에게 특수 접근 권한 부여
+chmod 4775 ff.exe
+ls -l ff.exe
+=> -rwsr-xr-x
+```
 
 
 
+# 프로세스 관리하기 (7주차 2차시)
 
+학습목표
+```
+프로세스 관리 명령 방법을 설명할 수 있다.
+포그라운드·백그라운드 프로세스 및 작업 제어에 대해
+설명할 수 있다.
+작업 예약 방법에 대해 설명할 수 있다.
+```
 
+## 프로세스 관리 명령 
+### 프로세스의 개요
 
+systemd,kthreadd 프로세스를 제외한 모든 프로세스는 부모 프로세스를 가지고 있음
 
+PID : process ID, 프로세스의 고유 번호
 
+for instance     
+부모 프로세스 : 배시 셸   
+자식 프로세스 : vi , ls 등 ( 작업을 종료하면 부모 프로세스에 보고하고 종료)  
+
+### 프로세스의 종류
+
+- 데몬 프로세스
+  - 특정 서비스를 제공, 리눅스 커널에 의해 제공
+
+- 고아 프로세스(orphan)
+  - 영화제목 오펀 천사의 비밀
+  - 자식이 실행중인데 부모 프로세스가 종료된 자식
+- 좀비 프로세스 (defunct process, zombi prcess)
+  - 자식 프로세스가 실행 종료되어도 테이블에 남아 있는 경우
+
+### 프로세스 출력
+
+- ps : 프로세스 목록 보기
+  - option
+    - -e : 실행중인 모든 프로세스의 정보
+    - -f : 프로세스의 자세한 정보
+    - -u uid : 특정 사용자(user ID)에 대한 모든 프로세스의 정보
+    - -p pid : pid로 지정한 특정 프로세스 정보 출력
+  - BSD option
+    - a : 터미널에서 실행한 모든 프로세스의 정보
+    - u : 프로세스의 자세한 정보
+    - x : 시스템에서 실행중인 모든 프로세스의 정보
+  - GNU option
+    - --pid PID 목록
