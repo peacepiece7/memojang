@@ -2684,34 +2684,52 @@ rm .exrc
 ```
 셸 활용하기 실습
 ```
+// 셸의 종류 알아보기
+
+사용하는 셸이 bash임을 알 수 있다
+
 grep iser1 /etc/passwd
 => ... home/user1:/btn/bash
-=> 셸 종류 알아볼 수 있음
+
+// 기본 셸 바꾸기
+sh, bash, dash, rbash등 변경가능한 셸이 나옴 
 
 cat /etc/shells
-=> 변경 가능한 셸을 알 수 있음
+=> 
 /bin/sh
 /bin/bash
 /bin/dash
 /bin/rbash
 
-
+// 셸 내장 명령 확인하기 
 file /bin/pwd
-=> 셸 내장 명령 확인하기
+=> 뭐라뭐라 나옴
+
+but  cat은 ascii라서 파일을 읽지 못하고 깨짐 file 명령으로 확인 해야 함
 
 cat /bin/pwd
-=> cat은 ascii라서 파일을 읽지 못하고 깨짐
+=> 꺠진 화면 나옴
+
+// 배시 셸의 출력하기 기능 echo
 
 echo comp
 => comp
 echo "compu program"
 => compu program
+
+// 줄 바꿈 없이 출력하기
+
 echo -n compu
 => compuuser1@user1-virtual-machme...
-=> 줄바꿈 없이 출력됨
+
+
+// 배시 셸의 출력 명령 printf
 
 printf "compu program /n"
 => compu program (carragie return이 들어감)
+
+// %d \n 은 printf의 형식을 지정함
+
 printf "%d - %d = %d /n" 20 10 10 
 => 20 - 10 = 10
 ```
@@ -2765,11 +2783,85 @@ bash: outxx: cannot overwrite existing file
 ```
 실습
 ```
+// echo 사용하기
+
 echo "our system is `uname`"
 => our system is Linux
 
-ls > 
+echo "our system is Lunux" > xx.txt
+vi xx.txt
+
+=> our system is Lunux
 ```
+
+#### 셸의 특수 문자 
+
+- * : 임의의 문자열을 나타내는 특수문자로 0개 이상의 문자로 대체
+
+```
+// 모든 디렉터리 출려하기(서브 디렉터리 포함)
+ls *
+
+// 현제 디렉터리의 모든 파일을 /tmp 디렉터리 아래로 복사
+cp */tmp
+
+// s,smt,semt같이 파일명이 s로 시작하는 모든 파일의 이름, 파일종류 출력, t도 해당
+ls -F S*
+
+// 확장자가 c인 모든 파일을 상위 디렉터리 아래의 ch3 디렉터리로 복사
+cp *.c ../ch3
+
+// 파일명이 p로 시작, t로 끝나는 파일 정보 상세 출력
+ls -l p*t
+
+```
+
+- ? : 길이가 1인 임의의 한 문자
+- [] : 괄호 안에 포함된 문자 중 하나를 나타냄
+
+```
+// s 다음에 임의의 한 문자가 나오고 확장자가 txt인 모든 파일의 이름 출력
+ls s?.txt
+
+// smt다음에 1,3,5 중 하나가 오고 확장자가 txt인 모든 파일 출력 
+ls -l smt[135].txt
+
+// [1-3]은 1부터 3까지 범위를 의미,
+ls -l smt[1-3].txt
+=> smt1.txt smt2.txt smt3.txt
+
+// 파일명이 숫자로 시작하는 모든 파일의 목록 출력
+ls [0-9]*
+```
+- "~", "-"는 디렉터리를 나타내는 특수 문자
+- "~" : 혼자 사용하면 현 작업 디렉터리의 홈 디렉터리 표시
+- ~로그인 ID : 해당 사용자의 홈 디렉터리를 표시
+
+- "-" : cd 명령으로 디렉터리를 이전하기 직전의 작업 디렉터리 표시
+
+```
+// 확장자가 txt인 모든 파일을 현제 작업 중인 사용자의 홈 디렉터리 아래 ch3디렉터리로 복사
+cp *.txt ~/ch3 
+
+// user2라는 사용자의 홈 디렉터리의 아래에서 linux.txt파일을 찾아 현재 디렉터리로 복사
+cp ~user2/linux.txt
+
+// 이전 작업 디렉터리로 이동
+cd -
+```
+
+- ";" : 연결된 명령을 왼쪽부터 실행
+- "|" : 왼쪽 명령의 실행 결과를 오른쪽으로 전달
+
+```
+// 날짜 출력 -> 현재 디렉터리의 파일목록 출력 -> 작업 절대경로 출력
+date; ls; pwd
+
+// ls -al/|more
+
+```
+
+
 # 셸 스크립트 (6주차 2차시)
 
 학습목표
@@ -2781,6 +2873,42 @@ ls >
 ```
 
 ## 배시 셸의 환경 설정
+
+셀 변수 출력 : set, env
+
+- set : 셸 변수와 환경 변수 모두 출력 
+  - bash, ksh, csh, bsh 모두 하나의 셀 변수를 의미함
+  - 현제 bash 이라면 set은 bash의 셸 변수를 의미함
+- env : 환경 변수만 출력 
+  
+  
+### 주요 셸 환경 변수
+
+- HISTSIZE : 히스토리 저장 크기
+- PATH : 명령을 탐색할 경로
+- HOME : 사용자 홈 디렉터리의 절대 경로
+- PWD : 작업 디렉터리의 절대 경로
+- SHELL : 로그인 셸
+- LANG : 사용하는 언어
+- LOGNAME : 사용자 계정 이름
+
+### 특정 변수 출력 : echo
+### 셸 변수 설정
+- 형식 : 변수명 = 문자열
+
+### 환경 변수 설정하기 : export
+- 지정한 셸 변수를 환경 변수로 바꿈
+- 먼저 셸 변수를 정의하고 export로 이를 환경 변수로 변경
+  - 로컬 변수를 글로벌로 변경하는 느낌인듯
+  - 옵션 : -n
+    - 환경 변수를 셸 변수로 바꿈
+
+- 지정한 변수를 해제
+  - unset 변수
+
+
+
+
 
 
 
