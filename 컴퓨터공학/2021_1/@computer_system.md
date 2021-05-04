@@ -3396,7 +3396,10 @@ ext4
 ![4](https://user-images.githubusercontent.com/73880776/116949866-639e1400-acbe-11eb-931f-5085a9bfcd60.GIF)
 
 
+## 리눅스 파일 시스템의 구조
 
+- ext4를 주로 사용
+- 파일이 inode로 관리됨, inode를 보면 파일 시스템에 대해서 알 수 있음
 
 
 
