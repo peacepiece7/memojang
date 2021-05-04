@@ -3383,11 +3383,20 @@ control + d
 
 ## 디스크 기반 파일 시스템
 
-ext(ext1)
+ext(ext1)  
 ![캡처](https://user-images.githubusercontent.com/73880776/116949781-25085980-acbe-11eb-90fc-be196c115eb5.GIF)
-ext2
-ext3
-ext4
+
+ext2  
+![2](https://user-images.githubusercontent.com/73880776/116949861-5ed96000-acbe-11eb-841a-36909d518980.GIF)
+
+ext3  
+![3](https://user-images.githubusercontent.com/73880776/116949863-626ce700-acbe-11eb-92fb-a00410223993.GIF)
+
+ext4  
+![4](https://user-images.githubusercontent.com/73880776/116949866-639e1400-acbe-11eb-931f-5085a9bfcd60.GIF)
+
+
+
 
 
 
