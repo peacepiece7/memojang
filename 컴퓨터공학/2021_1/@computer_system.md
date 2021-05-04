@@ -3383,7 +3383,14 @@ control + d
 
 ## 디스크 기반 파일 시스템
 
-![image](https://user-images.githubusercontent.com/73880776/116948725-39972280-acbb-11eb-900c-d116b26045b2.png)
+ext(ext1)
+![캡처](https://user-images.githubusercontent.com/73880776/116949781-25085980-acbe-11eb-90fc-be196c115eb5.GIF)
+ext2
+ext3
+ext4
+
+
+
 
 
 
