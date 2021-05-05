@@ -104,9 +104,13 @@ config, HEAD, hooks, refs 등등 다 있음
 깃 파일이 사라지고, 더 이상 깃 파일이 아님
 
 > 요약  
+
 `git init`  
+
 .git 시작  
+
 `re -rf .git`  
+
 .git 삭제 
 
 > source tree에서 생성 삭제
@@ -122,11 +126,14 @@ create loacal repository
 
 > git 상태보기  
 `git status`  
+
 => git 상태가 표시됨
 
 > 명령어 줄여 쓰기  
+> 
 `git config --hlobal alias.st status`  
 `git st`  
+
 => git 상태가 표시 됨  
 
 
@@ -158,21 +165,25 @@ create loacal repository
 ## 
 
 `cd projects/git/git`   
+
 작업 디렉터리로 들어가서 아래와 같이 작성  
 
 
-`ehco hello world! > a.txt`. 
+`ehco hello world! > a.txt`
+
 a.txt에 hello world를 작성함
 
-`open.`. 
+`open.`
+
 git folder를 열어봄
 
-`ehco hello world! > b.txt`. 
-`ehco hello world! > c.txt`. 
+`ehco hello world! > b.txt`
+`ehco hello world! > c.txt`
 
 a, b, c.txt 텍스트 파일을 만듬
 
-`git status`. 
+`git status`
+
 => 
 on branch master  
 
