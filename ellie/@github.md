@@ -308,22 +308,22 @@ stage area = git add
 .git directory = git commit	
 
 `git commit`	
-을 하게되면 vsc가 실행되고 commit관련 많은 문자들이 뜸,  
-Title, Description을 적어주고 종료해주면 commit 끝!
+을 하게되면 vsc가 실행되고 commit관련 많은 문자들이 뜸,	  
+Title, Description을 적어주고 종료해주면 commit 끝!	
 
-`git log`. 	
-위의 코드를 실행하면 내가 커밋한 내역이 나옴
+`git log`	  	
+위의 코드를 실행하면 내가 커밋한 내역이 나옴	
  
 `git commit -m "second commit"`     
 위처럼 간단하게 커밋할 수도 있음
 
 `git commit -am "third commit"`  
-all + message = -am	
-stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )
+all + message = -am		
+stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )	
 
-## commit 핧 때 source tree를 쓰는게 더 빠른 경우
+## commit 핧 때 source tree를 쓰는게 더 빠른 경우	
 
-source tree에서는 unstage files, stage files를 클릭해서, 특정 단어를 클릭해서 위치를 옮길 수 있음!  
+source tree에서는 unstage files, stage files를 클릭해서, 특정 단어를 클릭해서 위치를 옮길 수 있음!  	
 
 
 
