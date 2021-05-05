@@ -191,6 +191,7 @@ a,b,c.txt가 staging area로 이동됨
 
 `echo taetae >> a.txt`  
 `git status`  
+
 =>  
 on branch master  
 
@@ -206,12 +207,14 @@ changes not staged for commit:
 tracked상태의 a.txt가 만들어짐, 다른말로 commit stage에 있지 않은 파일이 존제함  
 
 `git --rm cashed *`  
+
 전체 파일을 untracked상태로 만듬  
 (위치만 untracked로 이동)  
 
 > sourcetree를 사용해서 시각적으로 확인해보자  
 
 `git add *`
+
 는 모두다 커밋하는데
 중간에 파일이 삭제될 경우
 deleted : a.txt 이런식으로 지워진 파일이 표시됨 그럴 땐
@@ -219,15 +222,21 @@ deleted : a.txt 이런식으로 지워진 파일이 표시됨 그럴 땐
 이렇게 적으면 모든 파일을 포함해서 스테이징아레아에 보내줌 ( 삭제된 아이는 지워짐 )
 
 > .css만 추가하고 싶다면
+> 
 `git add *.css`
 
 요약  
 
 `git add *.txt`   
-staging으로 보냄(commit)     
+
+staging으로 보냄(commit)   
+
 `git --rm cashed *`   
+
 staging파일을 untracked로 보냄  
+
 `git status`  
+
 tracked, untracked, staging 상태 확인  
 
 ### .ignore  
@@ -272,21 +281,28 @@ index 11saskf..22kasd3s  11200sad
 
 
 `git cat`    
+
 텍스트 파일의 내용을 터미널에 가져와 보여줌  
 
 `git diff --staged`    
-stage에 있는 모든 변경사항을 보여줌  
+
+stage에 있는 모든 변경사항을 보여줌 
+
 `git diff`  
+
 를 치면 워킹 디렉토리에 있는 내용 + 변경사항이 표시되고
 staged는 변경사항만 보여줌
 
 `git diff --cashed`  
+
 도 --staged와 같음!
 
 ## VScode에서 변경사항 확인하자
 
 terminal  
+
 `git config --global -e`  
+
 를 친다음  
 vsc에 아래와 같이 작성  
 `
@@ -297,7 +313,9 @@ vsc에 아래와 같이 작성
  `
 
 terminal  
-`git difftool`  
+
+`git difftool` 
+
 yes 적으면 vsc로 변경사항을 열어서 확일할 수 있다.  
 
 ## commit하기
@@ -308,19 +326,23 @@ stage area = git add
 .git directory = git commit	
 
 `git commit`	
+
 을 하게되면 vsc가 실행되고 commit관련 많은 문자들이 뜸,	  
 Title, Description을 적어주고 종료해주면 commit 끝!	
 
-`git log`	  	
+`git log`     	
+
 위의 코드를 실행하면 내가 커밋한 내역이 나옴	
- 
-`git commit -m "second commit"`     
-위처럼 간단하게 커밋할 수도 있음
+   
+`git commit -m "second commit"`    
 
-`git commit -am "third commit"`  
-all + message = -am		
-stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )	
+위처럼 간단하게 커밋할 수도 있음.  
+    
+`git commit -am "third commit"`    
 
+all + message = -am		   
+stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )	  
+   
 ## commit 핧 때 source tree를 쓰는게 더 빠른 경우	
 
 source tree에서는 unstage files, stage files를 클릭해서, 특정 단어를 클릭해서 위치를 옮길 수 있음!  	
