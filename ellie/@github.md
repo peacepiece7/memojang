@@ -157,22 +157,22 @@ create loacal repository
 
 ## 
 
-`cd projects/git/git`  
+`cd projects/git/git`   
 작업 디렉터리로 들어가서 아래와 같이 작성  
 
 
-`ehco hello world! > a.txt`
+`ehco hello world! > a.txt`. 
 a.txt에 hello world를 작성함
 
-`open.`
+`open.`. 
 git folder를 열어봄
 
-`ehco hello world! > b.txt`
-`ehco hello world! > c.txt`
+`ehco hello world! > b.txt`. 
+`ehco hello world! > c.txt`. 
 
 a, b, c.txt 텍스트 파일을 만듬
 
-`git status`
+`git status`. 
 => 
 on branch master  
 
@@ -249,7 +249,7 @@ for instance
 `echo build/ > .gitignore`  
 `echo build/*.log > .gitignore`  
 
-`git status -s`
+`git status -s`. 
 간략하게 status보기
 
 q -> exit  
@@ -257,7 +257,7 @@ cmd+k -> clear
 
 ## git diff 사용하기
 
-`git diff`
+`git diff`. 
 =>
 ```
 diff --git a/c.txt b/c.txt
@@ -271,10 +271,10 @@ index 11saskf..22kasd3s  11200sad
 ```
 
 
-`git cat`  
+`git cat`    
 텍스트 파일의 내용을 터미널에 가져와 보여줌  
 
-`git diff --staged`   
+`git diff --staged`    
 stage에 있는 모든 변경사항을 보여줌  
 `git diff`  
 를 치면 워킹 디렉토리에 있는 내용 + 변경사항이 표시되고
@@ -311,13 +311,13 @@ stage area = git add
 을 하게되면 vsc가 실행되고 commit관련 많은 문자들이 뜸,  
 Title, Description을 적어주고 종료해주면 commit 끝!
 
-`git log`	
+`git log`. 	
 위의 코드를 실행하면 내가 커밋한 내역이 나옴
-
-`git commit -m "second commit"`  
+ 
+`git commit -m "second commit"`     
 위처럼 간단하게 커밋할 수도 있음
 
-`git commit -am "third commit"`
+`git commit -am "third commit"`  
 all + message = -am	
 stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )
 
