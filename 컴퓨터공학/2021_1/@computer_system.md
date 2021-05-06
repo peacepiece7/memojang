@@ -3402,6 +3402,20 @@ ext4
 - 파일이 inode로 관리됨, inode를 보면 파일 시스템에 대해서 알 수 있음
 
 
+## 블록 그룹별 구조
+
+![캡처](https://user-images.githubusercontent.com/73880776/117224830-d8eb1f80-ae4b-11eb-8eb3-83863604fa38.GIF)  
+
+## inode의 구조
+
+![INODE](https://user-images.githubusercontent.com/73880776/117224877-f6b88480-ae4b-11eb-898e-f71b4bf1acde.GIF)
+
+ls -l에 나오는 정보가 inode 정보임
+
+
+
+
+## 파일 시스템 디렉터리 계층 구조
 
 
 
