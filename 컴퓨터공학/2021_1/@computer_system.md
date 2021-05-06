@@ -3441,8 +3441,8 @@ ls -l에 나오는 정보가 inode 정보
 
 ### /etc/fstab 파일의 구조
 
->  
->  
+<br>
+<br>
 
 아래 커맨드를 입력하여 파일의 구조를 볼 수 있음
 ```
@@ -3463,3 +3463,129 @@ cat /etc/fstab
 덤프 : 컴퓨트 프로그램이 특정 시점에 작업 중이던 메모리 상태를 기록한 것, 보통 비정상적 종료시 만들어짐
 
 
+### 파일 시스템 속성 설정 옵션
+
+```
+defaults
+일반적인 파일 시스템에 지정하는 속성으로 rw, nouser,
+auto, exec, suid 속성을 모두 포함
+auto 부팅 시 자동으로 마운트
+exec 실행 파일이 실행되는 것을 허용
+suid setuid, setgid의 사용을 허용
+ro 읽기 전용 파일 시스템
+rw 읽기, 쓰기가 가능한 파일 시스템
+user 일반 사용자도 마운트 가능
+nouser 일반 사용자의 마운트가 불가능하며, root만 마운트 가능
+noauto 부팅 시 자동으로 마운트하지 않음
+noexec 실행 파일이 실행되는 것을 허용하지 않음
+nosuid setuid, setgid의 사용을 금지
+usrquota 사용자별로 디스크 쿼터 설정 가능
+grpquota 그룹별로 디스크 쿼터 설정 가능
+```
+
+쿼터 : 디스크의 크기 및 파일의 용량을 사용자 또는 그룹 별로 제한
+
+### 마운트 관련 명령
+
+mount
+- 파일 시스템을 마운트함
+- mount [옵션] [장치명 or 마운트 포인트]
+- 옵션
+  - '-t' 파일 시스템의 종료
+  - '-o' 마운트 옵션 지정
+  - '-f' 마운트 할 수 있는지 정검
+  - '-r' 읽기만 가능하게 마운트(-o ro)
+
+<br>
+
+umount
+- 파일 시스템을 언마운트함
+- umount [옵션] [장치명 or 마운트 포인트]
+- 옵션
+  - '-t' 파일 시스템 종류를 지정
+
+<br>
+
+### 마운트 명령으로 장치를 연결하기
+
+`mount /dev/sdb1 /mnt`
+```
+ext2 파일 시스템 : mount -t ext2 /dev/sdb1 /mnt
+ext3 파일 시스템 : mount -t ext3 /dev/sdb1 /mnt
+ext4 파일 시스템 : mount -t ext4 /dev/sdb1 /mnt
+                   mount /dev/sdb1 /mnt
+                   
+CD-ROM mount -t : iso9660 /dev/cdrom/mnt/cdrom
+윈도 디스크 : mount -t vfat /dev/hdc /mnt
+USB 메모리 : 
+mount /dev/sdc1 /mnt (리눅스용 USB 메모리의 경우)
+mount -t vfat /dev/sdc1 /mnt (윈도용 USB 메모리의 경우)
+읽기 전용 마운트 : mount -r /dev/sdb1 /mnt
+읽기/쓰기 마운트 : mount -w /dev/sdb1 /mnt
+원격 디스크 마운트 : mount -t nfs 서버주소:/NFS 서버 측 디렉터리/mnt
+```
+
+CO-ROM 연결 및 해재
+
+실습
+
+
+```
+// 리눅스에서 지원하는 모든 파일 시스템이 표시하기
+cat /proc/filesystems
+=> 리눅스에서 지원하는 모든 파일 시스템이 표시됨
+(ext, nfs , configfs, autofs, ,,,)
+
+// 파일 시스템 마운트 설정 정보 확인하기
+
+cat /etc/fstab
+=> 마운트 정보가 표시됨 (cat /etc/fstab 파일의 구조를 파트랑에 적혀있는 내용)
+
+// 현제 마운트 되어 있는 정보 출력
+mount
+=> 현제 마운트 되어있는 모든 정보가 나옴
+cat etc/mtab
+=> mount 커맨드와 같이 현제 마운트 되어있는 모든 정보가 나옴
+
+// CD-ROM 연결
+
+cd/dvd connect한 다음
+mount
+=> 맨 아래 dev/sr0 on /medi/user1 .... 어쩌고 나옴
+
+// cd-rom 연결 확인
+ls -l /dev/cdrom
+=> rwxrwxrwx 1 root root 3 11dnjf 14dlf 15:44 /dev/cdrom -> sr0
+
+sudo mount -t iso9660 /dev/sr0 /mnt
+=> mount /mnt: WARNING : device write.protected, mounted read-only
+(연결 되었지만 읽기만 가능함, 마운트 되었음을 알 수 있음)
+
+ls /mnt
+=> 마운트 된 정보가 나옴
+
+// 파일 시스템을 언마운트
+sudo umount /mnt
+ls /mnt
+=> 마운트 정보가 사라짐
+```
+
+
+# 디스크 관리
+
+학습목표
+```
+파일 시스템을 생성할 수 있다.
+디스크 마운트와 LVM에 대해 설명할 수 있다.
+디스크를 관리할 수 있다.
+```
+## 가상머신 디스크 추가
+
+![캡처](https://user-images.githubusercontent.com/73880776/117234677-6b95b980-ae60-11eb-9715-9c60e9bddcb5.GIF)
+
+
+
+## 디스크 파티션 나누기
+
+> 파티션
+> > 하나의 디스크를 독립된 영역으로 구분하는 것
