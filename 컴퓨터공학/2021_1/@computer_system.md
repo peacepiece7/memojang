@@ -3411,12 +3411,12 @@ ext4
 ![INODE](https://user-images.githubusercontent.com/73880776/117224877-f6b88480-ae4b-11eb-898e-f71b4bf1acde.GIF)
 
 ls -l에 나오는 정보가 inode 정보
-  
-  
-  
-  
-  
-  
+
+<br>
+<br>
+<br>
+<br>
+<br>
 ## 파일 시스템 디렉터리 계층 구조
 
 
