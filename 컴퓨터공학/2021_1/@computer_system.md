@@ -3671,4 +3671,125 @@ inode당 바이트 수를 지정함(기본값은 4,096B)
 지정함(기본값은5%)
 ```
 
+실습
+```
+// vmware에서 가상 디스크 만들기
+disk type : SCSI, SATA 두가지 중 골라야함
+
+가상 디스크를 세개만듬
+
+// 디스크의 파티션 나누기 (sdb 디스크를 나눔)
+sudo fdisk /dev/sdb
+
+=> command (m for help) 
+m을 눌러서 사용법을 보고 아래 커맨드를 입력하여 디스크 파티션을 나눌 거임
+
+p (create a new empty GPT partition tabel)
+=> Disk /dev/sdb : 1Gib, 1xxxxxxxxx bytes, 20xxxxx sectors
+이렇게 뜸,
+// 아래와 같이 첫번째 파티션을 설정
+// 새로운 파티션 추가 : n
+n
+p
+=> partition number ( 1-4, defualt 1 ) 1
+frist sector => enter
+last sector => +500M ( 500MB 라는 뜻 )
+
+// 두번째 파티션을 설정
+n
+p
+=> partition number (2-4, defualt 2 ) 2
+frist sector => enter
+last sector => +500M
+
+// 저장하기
+w
+=> the partition table has been altered
+
+// 디스크의 파티션 나누기 (sdc 디스크를 나눔)
+sudo fdisk /dev/sdc
+
+// 위와 마찬가지로 last sector를 500, 500으로 나눔
+
+n
+p
+=> partition number (1-4, defualt 1) 1
+first sector => enter
+last sector => +500M
+
+n
+p
+=> partition numbrt (2-4, defulat 2) 2
+first sector => enter
+last sector => +500M
+
+w
+=> the partition table has been altered
+
+// 디스크의 파티션 나누기 (sdd 디스크를 나눔)
+// 이번엔 300, 300, 400으로 나눔
+
+sudo fdisk /dev/sdd
+
+// 파일 시스템 생성 : mkfs, mke2fs
+
+sudo mkfs /dev/sdb1
+sudo mkfs.ext3 -v /dev/sdb2
+sudo mke2fs -t ext3 /dev/sdc1
+sudo mke2fs -t ext4 /dev/sdc2
+sudo mk2fs -t ext4 -b 4096 /dev/sdd1
+sudo mk2fs -t ext4 -b 4096 /dev/sdd2
+sudo mk2fs -t ext4 -b 4096 /dev/sdd3
+
+sudo mkdir /mnt/hdd1
+sudo mkdir /mnt/hdd2
+sudo mkdir /mnt/hdd3
+
+// 파일 시스템 마운트하기
+
+sudo mount /dev/sdb1 /mnt/hdd1
+sudo mount /dev/sdb2 /mnt/hdd2
+
+// 마운트 복사하기
+
+sudo cp /etc/hosts /mnt/hdd1
+
+// 마운트 확인하기
+// hosts의 마운트가 잘 되면 아래와 같이 뜸
+
+ls /mnt/hdd1
+=> hosts lost+found
+```
+
+## 디스크 마운트 및 LVM
+
+위의 실습에서 했지만, 파일 시스템을 디렉터리 계층 구조에 마운트 함
+```
+mount /dev/sdb1 /mnt/hdd1
+mount /dev/sdb2 /mnt/hdd2
+mount /dev/sdb3 /mnt/hdd3
+mount -t ext3 /dev/sdb2 /mnt/hdd2
+```
+아래와 같은 결과가 출력됨 (ext2가 default)
+```
+[root@localhost ~]# mount
+(생략)
+/dev/sdb1 on /mnt/hdd1 type ext2
+(rw,relatime,seclabel,block_validity,barrier,user_xattr,acl)
+/dev/sdb2 on /mnt/hdd2 type ext3
+(rw,relatime,seclabel,data=ordered)
+[root@localhost ~]#
+```
+
+마운트 해제하기
+```
+[root@localhost ~]# umount /mnt/hdd1
+[root@localhost ~]# ls /mnt/hdd1
+[root@localhost ~]#
+```
+
+### LVM
+
+
+
 
