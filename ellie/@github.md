@@ -1,9 +1,5 @@
 # git start
 
-<br>
-<br>
-<br>
-
 [git reference](https://git-scm.com/docs)
 git [command] --[option]
 
