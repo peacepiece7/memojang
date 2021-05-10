@@ -1,11 +1,20 @@
 # git start
 
+<br>
+<br>
+<br>
+
 [git reference](https://git-scm.com/docs)
 git [command] --[option]
 
 준비물 
 
+<br>
+<br>
+<br>
+
 ## github UI
+
 
 현업에서는 command를 많이 쓴다고 한다.
 
@@ -18,39 +27,62 @@ git [command] --[option]
 
 [git UI](https://git-scm.com/downloads/guis)
 
+<br>
+<br>
+<br>
+
 ## git editor ( terminal ) 
 
 mac - > iturn2  
 window - > cmd R  
  - git미리 다운로드 되어 있음  
+ 
+<br>
+<br>
+<br>
 
-## git setting
+# git setting
 
 `git --version`  
 
 으로 설치 확인  
 
 `git config --list`  
+
 로 모든 설정 확인 가능  
 
 `git config --global -e`  
+
 파일로 열고 싶을땐 위와 같이 작성  
 
 `code`  
+
 vcs를 열고 싶을 떄 text editor로 연결하고 싶을 때 사용  
 (커맨드 팔렛에서 code 검색해서 설정 활성화 해야 함)
 (shell install : code.. 이런식으로 나옴, welcome page에서 팔렛을 열어야 함)
 
 > vsc로 git 설정 파일 열기  
-`git --global core.editor "code"`   
-`git config --global -e`  
+
+```
+git --global core.editor "code"
+git config --global -e
+
+```
+
 vsc가 열리고 terminal이 활성화 상태임  
 
-`git --global core.editro "code --wate"`  
-'git config --global -e`  
+```
+git --global core.editro "code --wate"
+git config --global -e
+```
+
 vsc가 열리고, vsc가 닫히기 전 까지 terminal이 비활성화 상태임  
-  
-## git name, email 설정하기
+
+<br>
+<br>
+<br>
+
+# git name, email 설정하기
 
 `git --global user.name "TaeTae"  
 `git --global user.email "peacepiece7@naver.com"  
@@ -61,7 +93,12 @@ vsc가 열리고, vsc가 닫히기 전 까지 terminal이 비활성화 상태임
 `config user.email`  
 => peacepiece7@naver.com
 mk
-## git new line solving
+
+<br>
+<br>
+<br>
+
+# git new line solving (os 개행문자 문제)
 
 > os 마다 개행 문자가 다르게 들어감  
 > window의 경우 text blahblah**/r/n**    (/r = carriage-return, /n = line-feed )  
@@ -78,13 +115,18 @@ input = git으로 저장할 때만 carriage-return 삭제 (문자를 복붙할 �
 window라면 위와 같이 작성
 true = git으로 저장시 carriage-return 삭제 git에서 가져올 때 carriage-return 붙여줌
 
-## git 생성 삭제 
+<br>
+<br>
+<br>
+
+# git 생성 삭제 
 
 `cd projects`  
 `mkdir git`  
 `cd git`  
 
 `ls -al`  
+
 => ..  
 
 `git init`  
@@ -122,7 +164,12 @@ create new or
 create loacal repository  
 (user1/desktop/projects/git)
 
+<br>
+<br>
+<br>
+
 ## git의 상태 보기, 명령어 줄여쓰기
+
 
 > git 상태보기  
 `git status`  
@@ -130,16 +177,22 @@ create loacal repository
 => git 상태가 표시됨
 
 > 명령어 줄여 쓰기  
-> 
-`git config --hlobal alias.st status`  
-`git st`  
 
+```
+git config --hlobal alias.st status
+git st
 => git 상태가 표시 됨  
-
+```
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 # basic 
 
-## git workflow
+# git workflow
 
 **working directory = > staging area => .git directory 순서로 저장함**  
 
@@ -161,8 +214,12 @@ create loacal repository
  - checkout명령어로 언제든지 working directory로 보낼 수 있음  
  - push, pull명렁어로 server에 .git directory를 주고 받을 수 있음  
 
-
-## 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 `cd projects/git/git`   
 
@@ -233,7 +290,8 @@ deleted : a.txt 이런식으로 지워진 파일이 표시됨 그럴 땐
 이렇게 적으면 모든 파일을 포함해서 스테이징아레아에 보내줌 ( 삭제된 아이는 지워짐 )
 
 > .css만 추가하고 싶다면
-> 
+
+
 `git add *.css`
 
 요약  
@@ -250,35 +308,44 @@ staging파일을 untracked로 보냄
 
 tracked, untracked, staging 상태 확인  
 
-### .ignore  
+# .ignore  
 
-`echo log > log.log`  
-`echo styles > styles.css`  
+```
+echo log > log.log
+echo styles > styles.css
 
-`echo *.log > .gitignore`  
+echo *.log > .gitignore` 
 
-`git add *`  
-`git status`  
+git add *` 
+git status` 
 =>  
 changed to be commited :   
     new styles.css  
+```
+
+<br>
+<br>
+<br>
 
 > untracked file에 log.log가 없어짐!  
 
 for instance    
-`echo build/ > .gitignore`  
-`echo build/*.log > .gitignore`  
+```
+echo build/ > .gitignore
+echo build/*.log > .gitignore
+```
+<br>
 
-`git status -s`. 
+`git status -s` 
 간략하게 status보기
 
 q -> exit  
 cmd+k -> clear  
 
-## git diff 사용하기
+# git diff 사용하기
 
-`git diff`. 
-=>
+`git diff`
+=> 
 ```
 diff --git a/c.txt b/c.txt
 index 11saskf..22kasd3s  11200sad
@@ -308,6 +375,10 @@ staged는 변경사항만 보여줌
 
 도 --staged와 같음!
 
+<br>
+<br>
+<br>
+
 ## VScode에서 변경사항 확인하자
 
 terminal  
@@ -329,7 +400,11 @@ terminal
 
 yes 적으면 vsc로 변경사항을 열어서 확일할 수 있다.  
 
-## commit하기
+<br>
+<br>
+<br>
+
+# commit하기
 
 git command 에 따른 저장위치 정리
 working directory = no command	  
@@ -353,8 +428,12 @@ Title, Description을 적어주고 종료해주면 commit 끝!
 
 all + message = -am		   
 stage와 working directory가 전부다 commit됨 ( git add 없이 바로 commit하기 )	  
-   
-## commit 핧 때 source tree를 쓰는게 더 빠른 경우	
+
+<br>
+<br>
+<br>
+
+# commit 핧 때 source tree를 쓰는게 더 빠른 경우	
 
 source tree에서는 unstage files, stage files를 클릭해서, 특정 단어를 클릭해서 위치를 옮길 수 있음!  	
 
