@@ -2560,6 +2560,54 @@ find /tmp -user user10 -exec rm {} ＼;
   - 에일리어스, path환경 변수로 지정된 경로에서 파일을 찾고 찾으면 절대경로 출력 종료
 
 
+실습
+```
+// 하드링크 만들기
+
+touch pract
+ln pract pract.ln
+
+// 심볼릭 링크 만들기
+ln -s pract pract.sn
+
+ls -l pra*
+=>
+-rw-r--r-- .... pract
+-rw-r--r-- ...  pract.ln
+lrwxrwxrwx ...  pract.sn -> pract
+
+// 하드노드 확인 아이노드값 비교
+ls -i pra*
+=>
+1316649 ... pract
+1316649 ... pract.ln
+1316650 ... pract.sn
+
+cd pract pract1
+ls -l pra*
+=>
+1316649 ... pract
+1316649 ... pract.ln
+1316650 ... pract.sn
+1316651 ... pract1
+
+// .c로 끝나는 파일 중 hello 라는 text가 있는 파일
+
+grep -l hellow *.c
+=>
+test.c (hello, world!)
+
+// 특정 파일의 위치를 찾을 때 find
+
+find ~ -name test.c
+/home/user1/test.c
+
+
+
+
+
+
+```
 
 # vi명령어 기초 (5주차 1차시)
 
