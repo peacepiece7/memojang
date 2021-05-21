@@ -19,68 +19,6 @@
 
 reference - [백엔드를 꿈꾸는 학생들에게](https://d2.naver.com/news/3435170)
 
-# nomadCoder에서 듣고싶은 수업의 가격, 시간 예상 공부 기간
-
-- [x] 코코아톡 클론 코딩(html css 초급 795분 **100,000원** 95개
-- [x] vanillajs로 크롭 앱 만들기 (vanillajs) **free** 초급 30개 100분
-- [ ] css layour marster class (html, scc, scss) **60,000원** 초급 54개 408분
-- [ ] vanillaJS로 그림판 만들기 **free** 초급 80분 20개
-- [ ] ES6,7,8의 정석 (es6,7,8) **120,000원** 중급  366분 61개 **중급이지만 es6는 초급으로 같이묶음!!!!!**
-
-- [ ] gulp master하기 **free** 초급 90분
-
-- [ ] github setting, window setup *free** 초급 280분 
-
-- [ ] 유튜브 클론 코딩(html, css, js, nodejs[express, scss, pug]) **360,000원** 초급 1215분 131개
-
-
-
-
-
-- [ ] ts로 블록체인만들기 **free** 중급 12개 60분
-- [ ] graphQL로 영화 api만들기 **free** 중급 12개 60분 
-- [ ] GraphQL로 영화 웹 앱 만들기 **free** 중급 14개 73분
-
-- [ ] reactJS로 영화 웹 서비스 만들기 **free** 초급 200분 25개 **초급이지만 리액트는 따로 중급으로 분류!!!!!중요**
-- [ ] 실전형 react hooks 10개 **free** 중급 19개 140분
-- [ ] 초보를 위한 reactjs (ts,es6,reactjs) **120,000원** 중급 71개 565분
-- [ ] 초보를 위한 reactNative(expo,ts,android&ios) **120,000원** 중급 109개 972분 
-- [ ] Twitter 클론 코딩 (html, css, REACTjs) **free** 중급 36개 257분
-
-
-
-- [ ] 에어비앤비 앱 클론 코딩(djago, expo, graphQL, redux, ios&android **120,000**원 중급 1043분 120개
-
-- [ ] 인스타그램 클론 코딩(인스타그램 백인드, 프런트 엔드, 앱, 서버),(nodejs, graphQL, React ios&android, APLLO, React Native) **360,000원** 중급 1000분이상 100개 이상
-
-
-
-
-- [ ] nestJS 로 API 만들기 (nestjs,ts) **free** 고급 23개 138분
-- [ ] 우버 이츠 클론 코딩(CRUD, Taillwind CSS, JWT Auth, Typescript, Nest.js, react, jest, graphQL, APOLLO **420,000원** 고급 2418분 255개
-
-### 금액
-초급: 500,000 원 (es6 108,000뺌) 환급가능 금액 약 170,000 원 수강후 총 비용 342,000 원
-중급: 720,000 원 환급가능 금액(airbnb33,000원 + 인스타그램 나중에 나오면 108,000원) 570,000 원 (react, reactNative가 240,000원임 이거 빼면 358,000원)
-고급: 420,000원 (환급금액 126,000원) 약 300,000원
-
-총 1,640,000원 (리액트 포함)
-할인된 총 가격 : 1,212,000원
-
-공부시간 :
-
-1. 초급 : 2,043분 34시간
-2. 중급 : 4,375분 72시간
-3. 고급 : 2,500분 42시간
-4. 공부해야하는 총 시간 : 8900분, 148시간
-5. 연습 -> 실전 -> 습득 대략 3배의 시간 27000분 450시간
-
-
-
-
-
-
-
 # Assignment
 >노마드 코딩 assingment
 1. 데이터 불러오기
