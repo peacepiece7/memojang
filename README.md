@@ -3,19 +3,19 @@
 지금까지 공부한 것들
 
 생활코딩
-- web1
-- web2
+- Web1
+- Web2
 - Http
 - OAuth
-- Cookie & Auth
+- Cookie & Auth ing..
 
 노마드 코더
-- to do list (vanilla js)
-- cocoa talk clon coding (html, css)
-- youtube clone coding (pug, sass, js, nodejs, mongodb)
+- To do list (vanilla js)
+- Cocoa talk clon coding (html, css)
+- Youtube clone coding (pug, sass, js, nodejs, mongodb) ing...
 
 드림코딩 엘리
-- js starter (youtube)
+- JS Starter (youtube)
 
 
 수업
@@ -26,4 +26,36 @@
 - 데이터 베이스
 - 네트워크
 
+하고싶은 것들 (순서대로)
+
+생활코딩
+- 전부 다 듣고 정리하기
+
+드림코딩엘리
+- github
+- js 
+- react
+- ts
+
+nomadcoders
+- react
+- uber eats clone coding ( next, jest ) 
+
+자료구조, 알고리즘, os. network, lilux, 확률 통계 중간중간 다시 듣거나 공부 하고싶음..
++ 컴활 1급도 따놓고 싶음..
+
+그외
+
+- php
+- vue
+- mysql
+- electron
+- vim , linux shell script
+- instar clone coding ( react native )
+- wireshark
+- docker
+- js deep dive 정리하기
+
+- java apche tomcate
+- go
 
