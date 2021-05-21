@@ -12,10 +12,10 @@
 노마드 코더
 - to do list (vanilla js)
 - cocoa talk clon coding (html, css)
-- nodejs
+- youtube clone coding (pug, sass, js, nodejs, mongodb)
 
 드림코딩 엘리
-
+- js starter (youtube)
 
 
 수업
