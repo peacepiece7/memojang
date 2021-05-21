@@ -5,12 +5,14 @@
 생활코딩
 - web1
 - web2
+- Http
+- OAuth
+- Cookie & Auth
 
 노마드 코더
 - to do list (vanilla js)
 - cocoa talk clon coding (html, css)
-
-
+- nodejs
 
 드림코딩 엘리
 
