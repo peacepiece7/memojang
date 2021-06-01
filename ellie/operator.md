@@ -94,6 +94,7 @@ const nullObject = () =>{
 ## 7. equality operators
 
 == loose equlity, with type conversion (타입에 신경쓰지 않고 문자열이 같으면 TURE)<br>
+(undifinded == null은 true를 반환)
 === strict eqlity with no type conversion (타입도 같아야 true반환) 이거 사용을 지향해야 함<br>
 
 ## 8. conditional operator
