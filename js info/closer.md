@@ -16,7 +16,8 @@ nested function : 중첩 함수에서 변수의 할당을 이해하려면 lexica
 
 Lexical Environment = internal hidden associated object(내부 숨김 연관 객체)임
 [명세서](https://tc39.es/ecma262/#sec-lexical-environments)에 기술되어 있는 개념 객체로
-중첩 함수, function expression 등 개념을 설명할 때 사용함
+
+아래 내용에서 중첩 함수, function expression의 개념을 설명할 때 사용할거임
 
 Lexical Environment는 아래 두 가지로 나눌 수 있음
 - Environment Record : local variable을 property로 저장하는 객체, this 가 여기에 포함됨
