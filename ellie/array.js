@@ -2,7 +2,7 @@
 
 // Array
 
-// ++ 아래 나오는 함수들을 api라고 함!! command눌러서 detail을 볼 수 있음
+// ++ 아래 나오는 함수들을 api라고 함 command눌러서 detail을 볼 수 있음
 
 // 1. Array Declaration
 // interface는 new 선언을해서 변수에 집에넣고 시작함
