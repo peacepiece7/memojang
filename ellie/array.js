@@ -94,7 +94,7 @@ const newText = text.join()
 
 console.log(newText)
 console.log(newFruits.join(''))
-// fruit:fruits🐥🐔🦋🐌🐨🐥 다 붙일 수 있음 ㅋㅋ
+// fruit:fruits🐥🐔🦋🐌🐨🐥 다 붙일 수 있음
 // if omitted, the array elements are sperated with a comma
 
 // 5. searching
