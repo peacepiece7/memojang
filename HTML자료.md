@@ -17,3 +17,7 @@
 
 [book store main page](https://replit.com/@peacepiece/GlisteningUnripeArchitects#index.html)  
 [book store main page answer](https://replit.com/@peacepiece6661/UnfoldedPoshAccess-2#style.css)
+
+> side bar 
+
+[side bar](https://replit.com/@peacepiece6661/CoralFearfulUsers#style.css)
